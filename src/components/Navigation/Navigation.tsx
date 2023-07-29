@@ -1,20 +1,22 @@
-import  { FC, useState } from 'react'
+import  { FC, useRef, useState } from 'react'
 import styled from 'styled-components'
 import NavigationItem from './NavigationItem'
 import Button from '../Button/Button'
 import { ButtonType, ButtonSize} from '../Button/IButton'
 
-interface IDropdownProps {
-  visibility: number
-}
+
 
 const Navigation:FC = () => {
   const [isDropped, setDrop] = useState<boolean>(false);
+  const dropdownMenu = useRef<HTMLUListElement>(null);
   const isDropdownVisible = ()=>{
-    console.log(isDropped)
-    if(isDropped){
+  if(!dropdownMenu.current)
+    return;
+  if(isDropped){
+      dropdownMenu.current.style.opacity ="0";
       setDrop(false);
     }else {
+      dropdownMenu.current.style.opacity ="1";
       setDrop(true);
     }
   }
@@ -25,9 +27,9 @@ const Navigation:FC = () => {
         <NavigationItem body="Episodes" href="Episodes"/>
         <NavigationItem body="About" href="About"/>
         <StyledMenu>
-          <Dropdown visibility={(isDropped)?1:0}>
+          <Dropdown>
           <span onClick={isDropdownVisible}>More</span>
-          <ul>
+          <ul ref={dropdownMenu}>
             <StyledLinkLogo  body="Option1" href="/"/>
             <StyledLinkLogo  body="Option2" href="/"/>
           </ul>
@@ -53,7 +55,7 @@ const StyledButtons = styled.div`
   display: flex;
   gap: 2rem;
 `
-const Dropdown = styled.div<IDropdownProps>`
+const Dropdown = styled.div`
   position: relative;
   cursor: pointer;
   & span {
@@ -75,7 +77,7 @@ const Dropdown = styled.div<IDropdownProps>`
   }
   & > ul {
     position: absolute;
-    opacity: ${p=>p.visibility};
+    opacity: 0;
     transition: 1s;
   }
   & ul > * {

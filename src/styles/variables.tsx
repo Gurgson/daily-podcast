@@ -10,7 +10,6 @@ export const variables = css`
         --color-red: #CD4631;
         --color-red-light: #f9ede8;
          
-        --color-star: #FFD057;
 
         // GRADIENTS
          
@@ -31,4 +30,4 @@ export const variables = css`
     }
 `;
 
-export const BREAKPOINTS = {}
+// export const BREAKPOINTS = {}

@@ -22,10 +22,16 @@ const Button:FC<IButtonProps> = (props) => {
 const ButtonSharedStyle = css`
     border-radius: 8px;
     font-weight: 700;
+    cursor: pointer;
     text-transform: uppercase;
+    transition: 1s;
+    &:hover{
+        transform: translateY(-0.25rem);
+    }
 `;
 const StyledOutlinedButton = styled.button<IStyledButtonProps>`
     padding: ${p=>p.size};
+    
     background-color: transparent;
     border: 2px solid var(--color-black);
     ${ButtonSharedStyle}
