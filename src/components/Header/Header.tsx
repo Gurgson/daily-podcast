@@ -1,6 +1,5 @@
 import { FC, ReactNode } from 'react'
 import styled from 'styled-components'
-import Navigation from './../Navigation/Navigation'
 import Decoration from '../Decoration/Decoration'
 import { DecorationHorizontalPosition, DecorationVerticalPosition } from '../Decoration/IDecoration'
 
@@ -12,9 +11,8 @@ interface IHeaderProps{
 const Header:FC<IHeaderProps> = (props) => {
   return (
     <StyledHeader>
-        <Navigation/>
-        <Decoration href='/images/header-decoration-1.svg' horizontal={DecorationHorizontalPosition.left} vertical={DecorationVerticalPosition.top}/>
-        <Decoration href='/images/header-decoration-2.png' horizontal={85} vertical={15}/>
+        <Decoration href='/decorations/header-decoration-1.svg' horizontal={DecorationHorizontalPosition.left} vertical={DecorationVerticalPosition.top}/>
+        <Decoration href='/decorations/header-decoration-2.png' horizontal={85} vertical={15}/>
         <StyledMain>
           {props.children}
         </StyledMain>
@@ -34,7 +32,7 @@ const StyledMain = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 6rem 0;
+  padding: 6rem 0;
   padding-bottom: 6rem;
 `
 

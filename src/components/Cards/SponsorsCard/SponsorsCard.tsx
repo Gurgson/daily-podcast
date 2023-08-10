@@ -1,19 +1,26 @@
-import React from 'react'
+import { FC } from 'react'
 import styled from 'styled-components'
 
-const SponsorsCard = () => {
+interface IProps {
+  isSmall?: boolean
+}
+const SponsorsCard:FC<IProps> = (props) => {
   return (
-    <StyledContainer>
-        <img src="/icons/spotify_full.png" alt="spotify podcast"/>
-        <img src="/icons/gpodcast_full.png" alt="google podcast"/>
-        <img src="/icons/yt_full.png" alt="youtube podcast" />
+    <StyledContainer isSmall={props.isSmall || false}>
+        <a href="https://podcasts.google.com/"><img src="/icons/spotify_full.png" alt="spotify podcast"/></a>
+        <a href="https://open.spotify.com/genre/podcasts-web"><img src="/icons/gpodcast_full.png" alt="google podcast"/></a>
+        <a href="https://www.youtube.com/"><img src="/icons/yt_full.png" alt="youtube podcast" /></a>
+        
+        
     </StyledContainer>
   )
 }
-const StyledContainer = styled.div`
+const StyledContainer = styled.div<IProps>`
     display: flex;
     justify-content: space-evenly;
-    /* align-items: center; */
     gap: 6rem;
+    & > a > img {
+      height: ${p=>p.isSmall?"2.2rem":"2.8rem"};
+    }
 `
 export default SponsorsCard

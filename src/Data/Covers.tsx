@@ -1,22 +1,47 @@
-export const CoversCardsList = [
+export interface ICover{
+    title: string, 
+    imgUrl: string,
+    gpodcast?: string,
+    spotify?: string,
+    youtube?: string,
+  }
+
+
+export const CoversCardsList : Array<ICover> = [
     {
         title: "Tesla Autopilot",
-        img: "/images/Covers/1.png"
+        imgUrl: "/images/Covers/1.png",
+        youtube: "https://www.youtube.com/",
+        spotify: "https://open.spotify.com/genre/podcasts-web",
+        gpodcast: "https://podcasts.google.com/"
+        
     },
     {
         title: "Self–confidence",
-        img: "/images/Covers/2.png"
+        imgUrl: "/images/Covers/2.png",
+        youtube: "https://www.youtube.com/",
+        spotify: "https://open.spotify.com/genre/podcasts-web",
+        gpodcast: "https://podcasts.google.com/"
     },
     {
         title: "Perplexed Mind",
-        img: "/images/Covers/3.png"
+        imgUrl: "/images/Covers/3.png",
+        youtube: "https://www.youtube.com/",
+        spotify: "https://open.spotify.com/genre/podcasts-web",
+        gpodcast: "https://podcasts.google.com/"
     },
     {
         title: "Woman's Rights",
-        img: "/images/Covers/4.png"
+        imgUrl: "/images/Covers/4.png",
+        youtube: "https://www.youtube.com/",
+        spotify: "https://open.spotify.com/genre/podcasts-web",
+        gpodcast: "https://podcasts.google.com/"
     },
     {
         title: "Social Class",
-        img: "/images/Covers/5.png"
+        imgUrl: "/images/Covers/5.png",
+        youtube: "https://www.youtube.com/",
+        spotify: "https://open.spotify.com/genre/podcasts-web",
+        gpodcast: "https://podcasts.google.com/"
     },
 ]

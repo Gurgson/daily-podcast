@@ -16,8 +16,8 @@ const NavigationItem:FC<IProps> = (props) => {
 }
 const StyledLink = styled(Link)`
   text-decoration: none;
-  margin: 2rem;
-  font-size: var(--fs-body);
   color: var(--color-black);
+  margin: 2rem;
+  
 `;
 export default NavigationItem;

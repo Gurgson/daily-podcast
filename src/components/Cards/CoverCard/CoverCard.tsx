@@ -1,31 +1,43 @@
 import {FC} from 'react'
 import styled from 'styled-components'
-
-interface ICoverCardParams extends IStyledCardContainerProps{
-  title: string, 
-  gpodcast?: string,
-  spotify?: string,
-  youtube?: string,
-}
-interface IStyledCardContainerProps {
-  imgurl: string
+import { ICover } from '../../../Data/Covers';
+import { SiYoutube, SiSpotify, SiGooglepodcasts } from 'react-icons/si';
+import SocialMediaIcon from '../../Icons/SocialMediaIcon';
+interface IStyledContainerProps{
+  $imageUrl: string
 }
 
-const CoverCard : FC<ICoverCardParams>= (props) => {
+const CoverCard : FC<ICover>= (props) => {
+  console.log(props)
   return (
-    <StyledCardContainer imgurl={props.imgurl}>
+    <StyledCardContainer $imageUrl={props.imgUrl}>
+      <StyledSocialMediaBar>
+        {props.gpodcast && <SocialMediaIcon icon={<SiGooglepodcasts></SiGooglepodcasts>}  href={props.gpodcast}/>}
+        {props.spotify && <SocialMediaIcon icon={<SiSpotify></SiSpotify>}  href={props.spotify}/>}
+        {props.youtube && <SocialMediaIcon icon={<SiYoutube></SiYoutube>}href={props.youtube}/>}
+        
+      </StyledSocialMediaBar>
       <StyledTitle>{props.title}</StyledTitle>
     </StyledCardContainer>
   )
 }
-const StyledCardContainer = styled.div<IStyledCardContainerProps>`
+const StyledSocialMediaBar = styled.div`
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  gap: 2rem;
+  display: flex;
+  
+`
+const StyledCardContainer = styled.div<IStyledContainerProps>`
   width: 37rem;
   min-width: 37rem;
   height: 37rem;
-  background-image: url(${p=>p.imgurl});
+  background-image: url(${p=>p.$imageUrl});
   background-size: cover;
   position: relative;
   border-radius: 12px;
+  z-index: 10;
 
   `;
   const StyledTitle = styled.p`

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import NavigationItem from './NavigationItem'
 import Button from '../Button/Button'
 import { ButtonType, ButtonSize} from '../Button/IButton'
+import Logo from '../Logo/Logo'
 
 
 
@@ -22,23 +23,22 @@ const Navigation:FC = () => {
   }
   return (
     <StyledNav>
-
-        <StyledLinkLogo body={<img src="/images/logo.svg" alt="logo" width={"75px"} height={'75px'} />} href="/"/>
+        <Logo/>
         <NavigationItem body="Episodes" href="Episodes"/>
         <NavigationItem body="About" href="About"/>
         <StyledMenu>
           <Dropdown>
           <span onClick={isDropdownVisible}>More</span>
           <ul ref={dropdownMenu}>
-            <StyledLinkLogo  body="Option1" href="/"/>
-            <StyledLinkLogo  body="Option2" href="/"/>
+            <NavigationItem  body="Option1" href="/"/>
+            <NavigationItem  body="Option2" href="/"/>
           </ul>
           </Dropdown>
         </StyledMenu>
         
         <StyledButtons>
-          <NavigationItem body={<Button type={ButtonType.Outlined} size={ButtonSize.small} buttonText='Recent Episodes'/>} href="Episodes"/>
-          <NavigationItem body={<Button type={ButtonType.Fill} size={ButtonSize.small} buttonText='Subscribe'/>} href="Episodes"/>
+          <NavigationItem body={<Button type={ButtonType.Outlined} size={ButtonSize.small}>Recent Episodes</Button>} href="Episodes"/>
+          <NavigationItem body={<Button type={ButtonType.Fill} size={ButtonSize.small}>Subscribe</Button>} href="Episodes"/>
         </StyledButtons>
         
 
@@ -71,7 +71,11 @@ const Dropdown = styled.div`
       display: block;
       height: 1.6rem;
       width: 1.6rem;
-      background-image: url('/images/arrow-down.svg');
+      background-image: url('/decorations/arrow-down.svg');
+      transition: 1s;
+    
+
+
     }
     
   }
@@ -79,6 +83,7 @@ const Dropdown = styled.div`
     position: absolute;
     opacity: 0;
     transition: 1s;
+    z-index: 25;
   }
   & ul > * {
    
@@ -104,16 +109,14 @@ const StyledNav = styled.nav`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: 85%;
+  width: 100%;
   margin: 0 auto;
   background-color: transparent;
   max-height: 75px;
   height: 75px;
   flex-shrink: 0;
+  background-color:var(--color-red-light);
+  
 `
-const StyledLinkLogo = styled(NavigationItem)`
-  flex-shrink: 0;
-
-` 
 
 export default Navigation

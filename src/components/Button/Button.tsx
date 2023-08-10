@@ -2,19 +2,21 @@ import { FC } from "react"
 import { ButtonSize, ButtonType } from "./IButton"
 import styled, { css } from "styled-components"
 
-interface IButtonProps {
-    size: ButtonSize,
-    type: ButtonType,
-    buttonText: string
-}
 interface IStyledButtonProps  {
-    size:ButtonSize
+    size:ButtonSize,
+    textColor?: string,
+    borderColor?: string
 }
+interface IButtonProps extends IStyledButtonProps {
+    type: ButtonType,
+    children: string
+}
+
 
 const Button:FC<IButtonProps> = (props) => {
   return (<>
-    {props.type === ButtonType.Fill  && <StyledFillButton size={props.size}>{props.buttonText}</StyledFillButton>}
-    {props.type === ButtonType.Outlined  && <StyledOutlinedButton size={props.size}>{props.buttonText}</StyledOutlinedButton>}
+    {props.type === ButtonType.Fill  && <StyledFillButton size={props.size}>{props.children}</StyledFillButton>}
+    {props.type === ButtonType.Outlined  && <StyledOutlinedButton textColor={props.textColor} borderColor={props.borderColor} size={props.size}>{props.children}</StyledOutlinedButton>}
   </>
     
   )
@@ -30,10 +32,12 @@ const ButtonSharedStyle = css`
     }
 `;
 const StyledOutlinedButton = styled.button<IStyledButtonProps>`
-    padding: ${p=>p.size};
+    color: var(${p=>p.textColor?p.textColor:"--color-black"});
+    ${p=>p.borderColor || ""}
     
+    padding: ${p=>p.size};
     background-color: transparent;
-    border: 2px solid var(--color-black);
+    border: 2px solid;
     ${ButtonSharedStyle}
     
 `;

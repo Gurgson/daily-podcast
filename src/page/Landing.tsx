@@ -4,34 +4,39 @@ import Header from "../components/Header/Header"
 import Button from "../components/Button/Button"
 import { ButtonSize, ButtonType } from "../components/Button/IButton"
 import Paragraph from "../components/Text/Paragraph"
-import { CoversCardsList } from "../Data/Covers"
+import { CoversCardsList, ICover } from "../Data/Covers"
 import CoverCard from "../components/Cards/CoverCard/CoverCard"
 import Caurusel from "../components/Slider/Carausel/Caurusel"
 import SponsorsCard from "../components/Cards/SponsorsCard/SponsorsCard"
+import Footer from "../components/Footer/Footer"
 
-const Ladning = () => {
+const Landing = () => {
   return (
+    <> 
       <Header>
-          <StyledTextContainer>
-            <Paragraph fontSize={"--fs-displayHeading"} fontWeight={700}> Your daily</Paragraph>
-            <Paragraph fontSize="--fs-displayHeading" color="--color-red" fontWeight={700}> Podcast</Paragraph>
-            <StyledDescriptionTextContainer>
-              <Paragraph > We cover all kinds of categories and </Paragraph>
-              <Paragraph>a weekly special guest.</Paragraph> 
-            </StyledDescriptionTextContainer>
-            
-          </StyledTextContainer>  
-          <Button type={ButtonType.Fill} size={ButtonSize.big} buttonText="Subscribe"/>
-          <Caurusel>
-          {
-              CoversCardsList.map((item, index)=><CoverCard imgurl={item.img} title={item.title} key={`${item.title}-cover-card-${index}`}/>)
-          }
-          </Caurusel>
-          <StyledSponsorBar>
-            <Paragraph fontSize="--fs-smallHeading" fontWeight={700}>Supported by:</Paragraph>
-            <SponsorsCard/>
-          </StyledSponsorBar>
+        <StyledTextContainer>
+          <Paragraph fontSize={"--fs-displayHeading"} fontWeight={700}> Your daily</Paragraph>
+          <Paragraph fontSize="--fs-displayHeading" color="--color-red" fontWeight={700}> Podcast</Paragraph>
+          <StyledDescriptionTextContainer>
+            <Paragraph > We cover all kinds of categories and </Paragraph>
+            <Paragraph>a weekly special guest.</Paragraph> 
+          </StyledDescriptionTextContainer>
+          
+        </StyledTextContainer>  
+        <Button type={ButtonType.Fill} size={ButtonSize.big}>Subscribe</Button>
+        <Caurusel>
+        {
+            CoversCardsList.map((item : ICover, index)=><CoverCard youtube={item.youtube} gpodcast={item.gpodcast} spotify={item.spotify} imgUrl={item.imgUrl} title={item.title} key={`${item.title}-cover-card-${index}`}/>)
+        }
+        </Caurusel>
+        <StyledSponsorBar>
+          <Paragraph fontSize="--fs-smallHeading" fontWeight={700}>Supported by:</Paragraph>
+          <SponsorsCard/>
+        </StyledSponsorBar>
       </Header>
+    </>
+     
+
     
   )
 }
@@ -66,4 +71,4 @@ const StyledTextContainer = styled.div`
 `
 
 
-export default Ladning
+export default Landing
