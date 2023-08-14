@@ -8,7 +8,7 @@ import { CoversCardsList, ICover } from "../Data/Covers"
 import CoverCard from "../components/Cards/CoverCard/CoverCard"
 import Caurusel from "../components/Slider/Carausel/Caurusel"
 import SponsorsCard from "../components/Cards/SponsorsCard/SponsorsCard"
-import Footer from "../components/Footer/Footer"
+import LandingAboutSection from "../components/Sections/LandingAboutSection/LandingAboutSection"
 
 const Landing = () => {
   return (
@@ -34,6 +34,7 @@ const Landing = () => {
           <SponsorsCard/>
         </StyledSponsorBar>
       </Header>
+      <LandingAboutSection/>
     </>
      
 

@@ -9,6 +9,7 @@ export const variables = css`
         --color-grey: #4D4D4D;
         --color-red: #CD4631;
         --color-red-light: #f9ede8;
+        --color-white: #fefefe;
     
 
         // GRADIENTS
