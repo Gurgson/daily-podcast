@@ -18,6 +18,7 @@ const StyledSection = styled.section<IProps>`
   position: relative;
   padding: 10rem;
   ${flexCenter}
+  flex-direction: column;
   background-color: var(${p => p.bgcolor?p.bgcolor:"--color-white"});
   &::before {
     content: "";
