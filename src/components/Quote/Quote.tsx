@@ -1,26 +1,31 @@
 import { FC } from "react"
 import styled from "styled-components"
 import { flexCenter } from "../../styles/mixins"
+import QuoteSign from "./QuoteSign"
+// import QuoteAuthor from "./QuoteAuthor"
 interface IProps  {
-  children: string
+  children: string,
+  author: {
+    platform: string,
+    author: string,
+    authorImg: string
+  }
 }
 
 const Quote:FC<IProps> = (props) => {
   return (
     
     <StyledContainer>
-      <StyledQuoteSign>&ldquo;</StyledQuoteSign>
+      <QuoteSign/>
       <p>
       {props.children}
       </p>
+
+
     </StyledContainer>
   )
 }
-export const StyledQuoteSign = styled.span`
-  color: var(--color-red);
-  font-size: var(--fs-displayHeading);
-  font-weight: 700;
-`
+
 const StyledContainer = styled.div`
   ${flexCenter}
   flex-direction: column;

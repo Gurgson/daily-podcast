@@ -31,13 +31,11 @@ const ButtonSharedStyle = css`
         transform: translateY(-0.25rem);
     }
 `;
-const StyledOutlinedButton = styled.button<IStyledButtonProps>`
+export const StyledOutlinedButton = styled.button<IStyledButtonProps>`
     color: var(${p=>p.textColor?p.textColor:"--color-black"});
-    ${p=>p.borderColor || ""}
-    
     padding: ${p=>p.size};
     background-color: transparent;
-    border: 2px solid;
+    border: 2px solid var(${p=>p.borderColor?p.borderColor:"--color-black"});
     ${ButtonSharedStyle}
     
 `;

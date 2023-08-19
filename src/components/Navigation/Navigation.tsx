@@ -24,9 +24,9 @@ const Navigation:FC = () => {
   return (
     <StyledNav>
         <Logo/>
+        <StyledMenu>
         <NavigationItem body="Episodes" href="Episodes"/>
         <NavigationItem body="About" href="About"/>
-        <StyledMenu>
           <Dropdown>
           <span onClick={isDropdownVisible}>More</span>
           <ul ref={dropdownMenu}>
@@ -46,14 +46,16 @@ const Navigation:FC = () => {
   )
 }
 const StyledMenu = styled.div`
-  display: inline-flex;
-  justify-content: center;
+  display: flex;
+  
   align-items: center;
-  gap: 60px;
+  gap: 6rem;
+  
 `
 const StyledButtons = styled.div`
   display: flex;
   gap: 2rem;
+  
 `
 const Dropdown = styled.div`
   position: relative;
@@ -107,7 +109,7 @@ const StyledNav = styled.nav`
   font-size: var(--fs-body);
   color: var(--color-black);
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   margin: 0 auto;

@@ -13,7 +13,7 @@ const FeaturesSection = () => {
         <StyledHeader>
             <Paragraph fontSize='--fs-heading' fontWeight={700}> Membership benefits</Paragraph>
         </StyledHeader>
-        <Paragraph fontSize='--fs-smallHeading'>Their experience throughout every platform</Paragraph>
+        <Paragraph fontSize='--fs-smallHeading' lineHeight='160%'>Their experience throughout every platform</Paragraph>
         <CardContainer>
             {Benefits.map((item,index)=> <BenefitCards title={item.title} img={item.img} description={item.description} key={`featureCard-${index}`}/>)}
         </CardContainer>

@@ -8,12 +8,12 @@ interface IProps {
 }
 const Section :FC<IProps> = (props) => {
   return (
-    <StyledSection>
+    <StyledSection bgcolor={props.bgcolor}>
       {props.children || "empty content"}
     </StyledSection>
   )
 }
-const StyledSection = styled.section<IProps>`
+export const StyledSection = styled.section<IProps>`
   min-height: 60rem;
   position: relative;
   padding: 10rem;

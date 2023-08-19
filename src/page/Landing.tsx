@@ -10,6 +10,7 @@ import Caurusel from "../components/Slider/Carausel/Caurusel"
 import SponsorsCard from "../components/Cards/SponsorsCard/SponsorsCard"
 import LandingAboutSection from "../components/Sections/LandingAboutSection/LandingAboutSection"
 import FeaturesSection from "../components/Sections/FeaturesSection/FeaturesSection"
+import TesimonialsSection from "../components/Sections/TestimonialsSection/TesimonialsSection"
 
 const Landing = () => {
   return (
@@ -25,17 +26,20 @@ const Landing = () => {
           
         </StyledTextContainer>  
         <Button type={ButtonType.Fill} size={ButtonSize.big}>Subscribe</Button>
-        <Caurusel>
+
+          <Caurusel>
         {
             CoversCardsList.map((item : ICover, index)=><CoverCard youtube={item.youtube} gpodcast={item.gpodcast} spotify={item.spotify} imgUrl={item.imgUrl} title={item.title} key={`${item.title}-cover-card-${index}`}/>)
         }
         </Caurusel>
+
         <StyledSponsorBar>
           <Paragraph fontSize="--fs-smallHeading" fontWeight={700}>Supported by:</Paragraph>
           <SponsorsCard/>
         </StyledSponsorBar>
       </Header>
       <LandingAboutSection/>
+      <TesimonialsSection/>
       <FeaturesSection/>
     </>
      
