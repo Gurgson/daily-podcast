@@ -9,14 +9,15 @@ interface IStyledButtonProps  {
 }
 interface IButtonProps extends IStyledButtonProps {
     type: ButtonType,
+    handleClick?: React.MouseEventHandler<HTMLButtonElement>;
     children: string
 }
 
 
 const Button:FC<IButtonProps> = (props) => {
   return (<>
-    {props.type === ButtonType.Fill  && <StyledFillButton size={props.size}>{props.children}</StyledFillButton>}
-    {props.type === ButtonType.Outlined  && <StyledOutlinedButton textColor={props.textColor} borderColor={props.borderColor} size={props.size}>{props.children}</StyledOutlinedButton>}
+    {props.type === ButtonType.Fill  && <StyledFillButton onClick={props.handleClick} size={props.size}>{props.children}</StyledFillButton>}
+    {props.type === ButtonType.Outlined  && <StyledOutlinedButton onClick={props.handleClick} textColor={props.textColor} borderColor={props.borderColor} size={props.size}>{props.children}</StyledOutlinedButton>}
   </>
     
   )
@@ -35,7 +36,8 @@ export const StyledOutlinedButton = styled.button<IStyledButtonProps>`
     color: var(${p=>p.textColor?p.textColor:"--color-black"});
     padding: ${p=>p.size};
     background-color: transparent;
-    border: 2px solid var(${p=>p.borderColor?p.borderColor:"--color-black"});
+    border: 2px solid;
+    border-color: var(${p=>p.borderColor?p.borderColor:"--color-black"});
     ${ButtonSharedStyle}
     
 `;

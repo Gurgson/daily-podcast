@@ -2,14 +2,11 @@ import { FC } from "react"
 import styled from "styled-components"
 import { flexCenter } from "../../styles/mixins"
 import QuoteSign from "./QuoteSign"
-// import QuoteAuthor from "./QuoteAuthor"
+import QuoteAuthor from "./QuoteAuthor"
+import { Author } from "../../Data/Testimonials"
 interface IProps  {
   children: string,
-  author: {
-    platform: string,
-    author: string,
-    authorImg: string
-  }
+  author: Author
 }
 
 const Quote:FC<IProps> = (props) => {
@@ -20,7 +17,7 @@ const Quote:FC<IProps> = (props) => {
       <p>
       {props.children}
       </p>
-
+      <QuoteAuthor author={props.author}/>
 
     </StyledContainer>
   )
@@ -34,6 +31,7 @@ const StyledContainer = styled.div`
   margin: 1rem auto;
   background-color: var(--color-red-light);
   position: relative;
+  gap: 3rem;
   & >p {
     width: 60%;
     font-size: var(--fs-subheading);

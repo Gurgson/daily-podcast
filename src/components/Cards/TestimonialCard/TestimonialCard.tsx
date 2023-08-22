@@ -4,12 +4,17 @@ import styled from 'styled-components'
 import QuoteSign from '../../Quote/QuoteSign'
 import { StyledParagraph } from '../../Text/Paragraph'
 import QuoteAuthor from '../../Quote/QuoteAuthor'
-const TestimonialCard : FC<ITestimonials> = (props) => {
+
+interface IProps {
+  testimonial: ITestimonials
+}
+
+const TestimonialCard : FC<IProps> = (props) => {
   return(
     <StyledContainer >
       <QuoteSign/>
-      <StyledText fontSize="--fs-smallHeading" > {props.description}</StyledText>
-      <QuoteAuthor avatar={props.authorImg} authorName={props.author} platform={props.platform}/>
+      <StyledText fontSize="--fs-smallHeading" > {props.testimonial.description}</StyledText>
+      <QuoteAuthor author={props.testimonial.author}/>
     </StyledContainer>
     
 

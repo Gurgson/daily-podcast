@@ -1,19 +1,17 @@
 import { FC } from 'react'
 import styled from 'styled-components'
+import { Author } from '../../Data/Testimonials'
 
 interface IProps {
-    avatar: string,
-    authorName: string,
-    platform: string
-    
+  author: Author
 }
 
 const QuoteAuthor :FC<IProps> = (props) => {
   return (
     <StyledContainer>
-        <Avatar src={props.avatar} alt={"author: " +props.authorName} />
-        <span> {props.authorName},</span>
-        <img src={props.platform} alt={"authors platform"} />
+        <Avatar src={props.author.profilePicture} alt={"author: " +props.author.authorName} />
+        <span> {props.author.authorName},</span>
+        <img src={props.author.platform} alt={"authors platform"} />
 
     </StyledContainer>
   )

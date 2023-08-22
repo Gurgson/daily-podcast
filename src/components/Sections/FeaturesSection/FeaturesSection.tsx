@@ -11,11 +11,11 @@ const FeaturesSection = () => {
     <Section>
         
         <StyledHeader>
-            <Paragraph fontSize='--fs-heading' fontWeight={700}> Membership benefits</Paragraph>
+            <Paragraph fontSize='--fs-heading' lineHeight='120%' fontWeight={700}> Membership benefits</Paragraph>
         </StyledHeader>
-        <Paragraph fontSize='--fs-smallHeading' lineHeight='160%'>Their experience throughout every platform</Paragraph>
+        <Paragraph fontSize='--fs-smallHeading' lineHeight='160%' color='--color-grey'>Their experience throughout every platform</Paragraph>
         <CardContainer>
-            {Benefits.map((item,index)=> <BenefitCards title={item.title} img={item.img} description={item.description} key={`featureCard-${index}`}/>)}
+            {Benefits.map((item,index)=> <BenefitCards benefits={item}  key={`featureCard-${index}`}/>)}
         </CardContainer>
     </Section>
   )

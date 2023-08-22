@@ -17,7 +17,7 @@ const LandingAboutSection = () => {
                 <Ilustration imgUrl="images/ilustration01.svg" quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac ultrices odio. "/>
                 <Ilustration imgUrl="images/ilustration02.svg" quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac ultrices odio. "/>
             </StyledRow>
-            <Quote>One of the best daily podcasts that covers every topic on Spotify.</Quote>
+            <Quote author={{platform: "/icons/spotify_scm_full.png",authorName:"John Smith", profilePicture:"/images/Testimonials/john.png"}} >One of the best daily podcasts that covers every topic on Spotify.</Quote>
         </StyledContainer>
     </Section>
   )

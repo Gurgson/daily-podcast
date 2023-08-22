@@ -10,10 +10,10 @@ const FooterTop = () => {
   return (
     <StyledContainer>
         <StyledTopHeader>
-          <Button type={ButtonType.Outlined} size={ButtonSize.small} textColor="--color-red" borderColor="var(--color-red-light);">Beta</Button>
-          <Paragraph margin="2.4rem 0 0 0" lineHeight="120%" fontSize="--fs-heading" fontWeight={700} wordSpacing="-1px">Avalaible now </Paragraph>
+          <Button type={ButtonType.Outlined} size={ButtonSize.small} textColor="--color-red" borderColor="--color-red-light;">Beta</Button>
+          <Paragraph lineHeight="120%" fontSize="--fs-heading" fontWeight={700} wordSpacing="-1px">Avalaible now </Paragraph>
           <Paragraph lineHeight="120%" fontSize="--fs-heading" fontWeight={700} wordSpacing="-1px">Pod Of Casts App </Paragraph>
-          <Paragraph margin="2.8rem" fontSize="--fs-smallHeading" color="--color-grey" lineHeight="160%"> We just launched out podcast </Paragraph>
+          <Paragraph fontSize="--fs-smallHeading" color="--color-grey" lineHeight="160%"> We just launched out podcast </Paragraph>
         </StyledTopHeader>
         <StyledBottomHeader>
           <StyledRelativDiv>

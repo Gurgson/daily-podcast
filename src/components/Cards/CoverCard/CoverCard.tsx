@@ -1,24 +1,28 @@
 import {FC} from 'react'
 import styled from 'styled-components'
-import { ICover } from '../../../Data/Covers';
 import { SiYoutube, SiSpotify, SiGooglepodcasts } from 'react-icons/si';
 import SocialMediaIcon from '../../Icons/SocialMediaIcon';
+import { IEpisodes } from '../../../Data/Episodes';
 interface IStyledContainerProps{
-  $imageUrl: string
+  imageUrl: string
 }
+interface IProps {
+  cover: IEpisodes
+  applyTitle: boolean
 
-const CoverCard : FC<ICover>= (props) => {
-  console.log(props)
+}
+const EpisodeCard : FC<IProps>= (props) => {
+
   return (
-    <StyledCardContainer $imageUrl={props.imgUrl}>
+    <StyledEpisodeCardContainer imageUrl={props.cover.imgUrl  }>
       <StyledSocialMediaBar>
-        {props.gpodcast && <SocialMediaIcon icon={<SiGooglepodcasts></SiGooglepodcasts>}  href={props.gpodcast}/>}
-        {props.spotify && <SocialMediaIcon icon={<SiSpotify></SiSpotify>}  href={props.spotify}/>}
-        {props.youtube && <SocialMediaIcon icon={<SiYoutube></SiYoutube>}href={props.youtube}/>}
+        {props.cover.gpodcast && <SocialMediaIcon icon={<SiGooglepodcasts></SiGooglepodcasts>}  href={props.cover.gpodcast}/>}
+        {props.cover.spotify && <SocialMediaIcon icon={<SiSpotify></SiSpotify>}  href={props.cover.spotify}/>}
+        {props.cover.youtube && <SocialMediaIcon icon={<SiYoutube></SiYoutube>}href={props.cover.youtube}/>}
         
       </StyledSocialMediaBar>
-      <StyledTitle>{props.title}</StyledTitle>
-    </StyledCardContainer>
+      {props.applyTitle && <StyledTitle>{props.cover.shortTitle}</StyledTitle>}
+    </StyledEpisodeCardContainer>
   )
 }
 const StyledSocialMediaBar = styled.div`
@@ -29,11 +33,11 @@ const StyledSocialMediaBar = styled.div`
   display: flex;
   
 `
-const StyledCardContainer = styled.div<IStyledContainerProps>`
+export const StyledEpisodeCardContainer = styled.div<IStyledContainerProps>`
   width: 37rem;
   min-width: 37rem;
   height: 37rem;
-  background-image: url(${p=>p.$imageUrl});
+  background-image: url(${p=>p.imageUrl});
   background-size: cover;
   position: relative;
   border-radius: 12px;
@@ -51,4 +55,4 @@ const StyledCardContainer = styled.div<IStyledContainerProps>`
   letter-spacing: -3px;
 `;
 
-export default CoverCard
+export default EpisodeCard
