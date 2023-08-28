@@ -4,6 +4,8 @@ import NavigationItem from './NavigationItem'
 import Button from '../Button/Button'
 import { ButtonType, ButtonSize} from '../Button/IButton'
 import Logo from '../Logo/Logo'
+import FontSizes from '../../enums/FontSizes'
+import ColorScheme from '../../enums/ColorScheme'
 
 
 
@@ -22,23 +24,24 @@ const Navigation:FC = () => {
     }
   }
   return (
-    <StyledNav>
+    <StyledNav id='top'>
         <Logo/>
         <StyledMenu>
-        <NavigationItem body="Episodes" href="Episodes"/>
-        <NavigationItem body="About" href="About"/>
+        <NavigationItem body="Episodes" href="/Home#Episodes"/>
+        <NavigationItem body="About" href="/About"/>
           <Dropdown>
           <span onClick={isDropdownVisible}>More</span>
           <ul ref={dropdownMenu}>
-            <NavigationItem  body="Option1" href="/"/>
-            <NavigationItem  body="Option2" href="/"/>
+            <NavigationItem  body="Option1" href="/#"/>
+            <NavigationItem  body="Option2" href="/#"/>
+            <NavigationItem  body="Option3" href="/#"/>
           </ul>
           </Dropdown>
         </StyledMenu>
         
         <StyledButtons>
-          <NavigationItem body={<Button type={ButtonType.Outlined} size={ButtonSize.small}>Recent Episodes</Button>} href="Episodes"/>
-          <NavigationItem body={<Button type={ButtonType.Fill} size={ButtonSize.small}>Subscribe</Button>} href="Episodes"/>
+          <NavigationItem body={<Button type={ButtonType.Outlined} size={ButtonSize.small}>Recent Episodes</Button>} href="/Home#Episodes"/>
+          <NavigationItem body={<Button type={ButtonType.Fill} size={ButtonSize.small}>Subscribe</Button>} href="/Home#Features"/>
         </StyledButtons>
         
 
@@ -98,16 +101,12 @@ const Dropdown = styled.div`
       width: 10rem;
     }
     opacity: 1;
-    
-    /* &:hover::after{
-      
-    } */
   }
   `;
 const StyledNav = styled.nav`
   text-decoration: none;
-  font-size: var(--fs-body);
-  color: var(--color-black);
+  font-size: var(${FontSizes.body});
+  color: var(${ColorScheme.black});
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -117,7 +116,7 @@ const StyledNav = styled.nav`
   max-height: 75px;
   height: 75px;
   flex-shrink: 0;
-  background-color:var(--color-red-light);
+  background-color:var(${ColorScheme.lightRed});
   
 `
 

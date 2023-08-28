@@ -4,14 +4,15 @@ import { flexCenter } from "../../../styles/mixins"
 import Paragraph from "../../Text/Paragraph"
 import Ilustration from "./Ilustration"
 import Quote from "../../Quote/Quote"
+import FontSizes from "../../../enums/FontSizes"
 
 const LandingAboutSection = () => {
   return (
     <Section>
         <StyledContainer>
             <>
-            <Paragraph fontSize="--fs-heading" fontWeight={700} lineHeight="120%">Talk. Listen. Get inspired.</Paragraph>
-            <Paragraph fontSize="--fs-heading" fontWeight={700} lineHeight="120%"> by every minute of it.</Paragraph>
+            <Paragraph fontSize={FontSizes.heading} fontWeight={700} lineHeight="120%">Talk. Listen. Get inspired.</Paragraph>
+            <Paragraph fontSize={FontSizes.heading} fontWeight={700} lineHeight="120%"> by every minute of it.</Paragraph>
             </>
             <StyledRow>
                 <Ilustration imgUrl="images/ilustration01.svg" quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac ultrices odio. "/>

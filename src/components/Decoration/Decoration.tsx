@@ -9,6 +9,8 @@ interface IStyledDecoration  {
     width?: number;
     heigth?: number;
     z?: number;
+    rotate?: number;
+    isMirrored?: boolean;
     
 }
 interface IDecoration extends IStyledDecoration {
@@ -17,7 +19,7 @@ interface IDecoration extends IStyledDecoration {
 }
 const Decoration:FC<IDecoration> = (props) => {
   return (
-    <StyledDecoration src={props.href} z={props.z} horizontal={props.horizontal} vertical={props.vertical}/>
+    <StyledDecoration src={props.href} rotate={props.rotate} isMirrored={props.isMirrored} z={props.z} horizontal={props.horizontal} vertical={props.vertical}/>
   ) 
 }
 
@@ -27,5 +29,6 @@ const StyledDecoration = styled.img<IStyledDecoration>`
     z-index: ${p=> p.z?p.z: 1};
     top: ${p=>p.vertical || 0}%;
     left: ${p=>p.horizontal || 0}%;
+    transform: scaleX(${p=>p.isMirrored?-1:1}) rotate(${p=>p.rotate?`${p.rotate}deg`:"0deg"});
 `
 export default Decoration

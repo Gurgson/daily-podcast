@@ -4,6 +4,8 @@ import { flexCenter } from "../../styles/mixins"
 import QuoteSign from "./QuoteSign"
 import QuoteAuthor from "./QuoteAuthor"
 import { Author } from "../../Data/Testimonials"
+import ColorScheme from "../../enums/ColorScheme"
+import FontSizes from "../../enums/FontSizes"
 interface IProps  {
   children: string,
   author: Author
@@ -29,16 +31,16 @@ const StyledContainer = styled.div`
   width: 90%;
   padding: 4rem;
   margin: 1rem auto;
-  background-color: var(--color-red-light);
+  background-color: var(${ColorScheme.lightRed});
   position: relative;
   gap: 3rem;
   & >p {
     width: 60%;
-    font-size: var(--fs-subheading);
+    font-size: var(${FontSizes.subheading});
     text-align: center;
     font-style: normal;
     font-weight: 700;
-    line-height: 140%; /* 51.31px */
+    line-height: 140%;
     letter-spacing: -0.07rem;
   }
   &::before{

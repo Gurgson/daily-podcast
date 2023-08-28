@@ -1,26 +1,51 @@
 import styled from "styled-components";
-import { IEpisodes } from "../../Data/Episodes"
+import { IEpisode } from "../../Data/Episodes"
 import {FC} from "react";
-import { motion } from "framer-motion";
+import { Variants, motion } from "framer-motion";
 import { StyledParagraph } from "../Text/Paragraph";
 import { flexCenter } from "../../styles/mixins";
 import { Link } from "react-router-dom";
+import ColorScheme from "../../enums/ColorScheme";
+import FontSizes from "../../enums/FontSizes";
 
 
 interface IProps {
-    cover: IEpisodes;
+    cover: IEpisode;
     isColored: boolean
 }
 const CoverCardListItem:FC<IProps>= (props) => {
     const episodeNumber = props.cover.id +1;
+    const animationSet : Variants = {
+        start: {
+            height: "10rem",
+            scale: 0,
+        },
+        end: {
+            height: "25rem",
+            scale: 1,
+            transition: {
+                duration: 1,
+                type: "tween"
+            }
+        },
+        hover: {
+            cursor: "pointer",
+            borderColor: `var(${ColorScheme.black})`,
+            translateY: "-0.5rem",
+            boxShadow: `1rem 1rem 0 0 var(${ColorScheme.blue})`,
+            transition: {
+                duration: 0.5
+            }
+        }  
+    }
   return (
-    <StyledLink to={"Episode"}>
-        <StyledContainer transition={{duration: 1}} initial={{border: "2px solid var(--color-white)", boxShadow:"0.5rem 0.5rem 0 0 var(--color-blue)"}} whileHover={{cursor:"pointer",border: "2px solid var(--color-black",translateY:"-0.5rem", boxShadow: "1rem 1rem 0 0 var(--color-blue)"}}>
+    <StyledLink to={`Episode/episode-${props.cover.id}`} >
+        <StyledContainer variants={animationSet} initial="start" whileHover="hover" whileInView="end" viewport={{ once: true }}>
             <img src={props.cover.imgUrl} alt={`${props.cover.shortTitle} podcast image`}/>
             <StyledCardInfo>
-                <StyledText color="--color-red" fontWeight={700} lineHeight="160%">{`Ep. ${episodeNumber}`}</StyledText>
-                <StyledText lineHeight="140%" color={(props.isColored)?"--color-red":"--color-black"} fontSize="--fs-smallHeading" fontWeight={700}> { props.cover.fullTitle}</StyledText>
-                <div></div>
+                <StyledText color={ColorScheme.red} fontWeight={700} lineHeight="160%">{`Ep. ${episodeNumber}`}</StyledText>
+                <StyledText lineHeight="140%" color={(props.isColored)?ColorScheme.red:ColorScheme.black} fontSize={FontSizes.smallHeading} fontWeight={700}> { props.cover.fullTitle}</StyledText>
+                <hr/>
                 <StyledText>{props.cover.description}</StyledText>
             </StyledCardInfo>
             <StyledBottom>
@@ -47,7 +72,7 @@ interface ImgProps {
     index: number
 }
 const StyledImg = styled.img<ImgProps>`
-    border: 0.5rem solid var(--color-white);
+    border: 0.5rem solid var(${ColorScheme.white});
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
@@ -56,8 +81,8 @@ const StyledImg = styled.img<ImgProps>`
 const StyledHosts = styled.div`
     ${flexCenter}
     & > span {
-        font-size: var(--fs-small);
-        color: var(--color-grey);
+        font-size: var(${FontSizes.small});
+        color: var(${ColorScheme.grey});
         font-weight: 700;
         line-height: 160%;
     }
@@ -70,10 +95,10 @@ const StyledTags = styled.div`
     gap: .6rem;
     & > div {
         padding: 0.6rem 1.2rem;
-        color: var(--color-grey);
-        font: var(--fs-small);
+        color: var(${ColorScheme.grey});
+        font: var(${FontSizes.small});
         line-height: 160%;
-        border: 1px solid var(--color-grey);
+        border: 1px solid var(${ColorScheme.grey});
         border-radius: 4px;
     }
 `;
@@ -91,22 +116,25 @@ const StyledCardInfo = styled.div`
     flex-direction: column;
     justify-content: center;
     max-height: 16.6rem;
-    & > div {
+    & > hr {
         width: 100%;
-        border-top: 1px solid var(--color-grey);
-        height: 0.5px;
+        border-top: 1px solid var(${ColorScheme.grey});
+     
         margin: 1.5rem 0 1rem 0;
     }
 `
-const StyledContainer = styled(motion.li)`
+const StyledContainer = styled(motion.div)`
     width: 57rem;
-    min-height: 25rem;
-    background-color: var(--color-white);
+    /* min-height: 25rem; */
+    background-color: var(${ColorScheme.white});
+    border: 2px solid var(${ColorScheme.white});
     border-radius: 1.2rem;
     padding: 1.6rem;
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
+    box-shadow: 0.5rem 0.5rem 0 0 var(${ColorScheme.blue});
+   
     & > img {
         width: 16.6rem;
         height: 16.6rem;

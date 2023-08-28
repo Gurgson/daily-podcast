@@ -8,6 +8,7 @@ const GlobalStyles = createGlobalStyle`
 
     html {
         font-size: 62.5%;
+        scroll-behavior: smooth;
         @font-face {
             font-family: "MontserratAlternates";
             src: url('/fonts/Montserrat_Alternates/MontserratAlternates-Regular.ttf') format('truetype');
@@ -21,8 +22,8 @@ const GlobalStyles = createGlobalStyle`
     body {
         font-family: 'MontserratAlternates';
         background-color: white;
-        font-size: var(--fs-paragraph);
+        
     }
 `;
-
+``
 export default GlobalStyles;    

@@ -1,15 +1,17 @@
-import { FC } from "react"
+import { FC} from "react"
 import styled from "styled-components"
+import FontSizes from "../../enums/FontSizes"
+import ColorScheme from "../../enums/ColorScheme"
 interface IStyledParagraph {
-    fontSize?: string,
+    fontSize?: FontSizes,
     fontWeight?: number | string,
-    color?: string,
+    color?: ColorScheme,
     lineHeight?: string,
     wordSpacing?: string,
     margin?: string
 }
 interface IParagraphProps extends IStyledParagraph {
-    children: string,
+    children: string 
     
 }
 const Paragraph:FC<IParagraphProps> = (props) => {
@@ -18,10 +20,10 @@ const Paragraph:FC<IParagraphProps> = (props) => {
   )
 }
 export const StyledParagraph = styled.p<IStyledParagraph>`
-    
+    position: relative;
     margin: ${p=>p.margin};
-    color: var(${p => p.color || "--color-black"});
-    font-size: var(${p => p.fontSize || "--fs-body"});
+    color: var(${p => p.color || ColorScheme.black});
+    font-size: var(${p => p.fontSize || FontSizes.body});
     line-height: ${p=> p.lineHeight || "100%"};
     font-weight: ${p=>p.fontWeight || 500};
     word-spacing: ${p=>p.wordSpacing || 0};

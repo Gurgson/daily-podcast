@@ -4,8 +4,8 @@ import Header from "../components/Header/Header"
 import Button from "../components/Button/Button"
 import { ButtonSize, ButtonType } from "../components/Button/IButton"
 import Paragraph from "../components/Text/Paragraph"
-import { EpisodesDataList, IEpisodes } from "../Data/Episodes"
-import EpisodeCard from "../components/Cards/CoverCard/CoverCard"
+import { EpisodesDataList, IEpisode } from "../Data/Episodes"
+import EpisodeCard from "../components/Cards/EpisodeCard/EpisodeCard"
 import SponsorsCard from "../components/Cards/SponsorsCard/SponsorsCard"
 import LandingAboutSection from "../components/Sections/LandingAboutSection/LandingAboutSection"
 import FeaturesSection from "../components/Sections/FeaturesSection/FeaturesSection"
@@ -13,6 +13,8 @@ import TesimonialsSection from "../components/Sections/TestimonialsSection/Tesim
 import { motion } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
 import EpisodeListSection from "../components/Sections/EpisodeListSection/EpisodeListSection"
+import FontSizes from "../enums/FontSizes"
+import ColorScheme from "../enums/ColorScheme"
 
 const Landing = () => {
   const [CauruselWidth, setCauruselWidth] = useState<number>(0);
@@ -23,13 +25,13 @@ const Landing = () => {
         setCauruselWidth(CauruselRow.current.scrollWidth - CauruselRow.current.offsetWidth);
     },[])
   
-  const cauruselItems = EpisodesDataList.filter((item:IEpisodes)=>item.isFeatured === true).map((item : IEpisodes, index)=><EpisodeCard applyTitle={true} cover={item} key={`${item.shortTitle}-cover-card-${index}`}/>);
+  const cauruselItems = EpisodesDataList.filter((item:IEpisode)=>item.isFeatured === true).map((item : IEpisode, index)=><EpisodeCard applyTitle={true} cover={item} key={`${item.shortTitle}-cover-card-${index}`}/>);
   return (
     <> 
       <Header>
         <StyledTextContainer>
-          <Paragraph fontSize={"--fs-displayHeading"} fontWeight={700}> Your daily</Paragraph>
-          <Paragraph fontSize="--fs-displayHeading" color="--color-red" fontWeight={700}> Podcast</Paragraph>
+          <Paragraph fontSize={FontSizes.displayHeading} fontWeight={700}> Your daily</Paragraph>
+          <Paragraph fontSize={FontSizes.displayHeading} color={ColorScheme.red} fontWeight={700}> Podcast</Paragraph>
           <StyledDescriptionTextContainer>
             <Paragraph > We cover all kinds of categories and </Paragraph>
             <Paragraph>a weekly special guest.</Paragraph> 
@@ -47,7 +49,7 @@ const Landing = () => {
         
 
         <StyledSponsorBar>
-          <Paragraph fontSize="--fs-smallHeading" fontWeight={700}>Supported by:</Paragraph>
+          <Paragraph fontSize={FontSizes.smallHeading} fontWeight={700}>Supported by:</Paragraph>
           <SponsorsCard/>
         </StyledSponsorBar>
       </Header>

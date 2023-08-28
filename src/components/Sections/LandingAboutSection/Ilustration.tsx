@@ -10,7 +10,7 @@ const Ilustration : FC<IProps> = (props) => {
   return (
     <StyledContainer>
         <img src={props.imgUrl} alt="Illustation"/>
-        <Paragraph margin="0 auto" fontSize="--fs-body" lineHeight="160%">{props.quote}</Paragraph>
+        <Paragraph margin="0 auto" lineHeight="160%">{props.quote}</Paragraph>
     </StyledContainer>
   )
 }

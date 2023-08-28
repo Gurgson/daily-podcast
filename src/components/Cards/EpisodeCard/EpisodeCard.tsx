@@ -2,12 +2,14 @@ import {FC} from 'react'
 import styled from 'styled-components'
 import { SiYoutube, SiSpotify, SiGooglepodcasts } from 'react-icons/si';
 import SocialMediaIcon from '../../Icons/SocialMediaIcon';
-import { IEpisodes } from '../../../Data/Episodes';
+import { IEpisode } from '../../../Data/Episodes';
+import ColorScheme from '../../../enums/ColorScheme';
+import FontSizes from '../../../enums/FontSizes';
 interface IStyledContainerProps{
   imageUrl: string
 }
 interface IProps {
-  cover: IEpisodes
+  cover: IEpisode
   applyTitle: boolean
 
 }
@@ -46,9 +48,9 @@ export const StyledEpisodeCardContainer = styled.div<IStyledContainerProps>`
   `;
   const StyledTitle = styled.p`
   position: absolute;
-  color: var(--color-blue);
+  color: var(${ColorScheme.blue});
   font-weight: 700;
-  font-size: var(--fs-subheading);
+  font-size: var(${FontSizes.subheading});
   bottom: 2rem;
   left: 2rem;
   line-height: 140%;

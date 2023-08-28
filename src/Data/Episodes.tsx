@@ -1,9 +1,7 @@
-interface host{
-    name: string,
-    imgUrl: string
-}
+import { IHost, doeHost, janeHost, marquesHost, poterHost } from "./Hosts"
 
-export type IEpisodes = {
+
+export type IEpisode = {
     id: number,
     shortTitle: string, 
     fullTitle: string,
@@ -14,29 +12,17 @@ export type IEpisodes = {
     tags: Array<string>
     description: string,
     hosts: {
-        main: host,
-        guests: Array<host>
+        main: IHost,
+        guests: Array<IHost>
     },
     isFeatured: boolean
   }
-
-const poterHost: host = {
-    name: "Poter Severus", 
-    imgUrl:"/images/hosts/poter.jpg"
-}
-const janeHost: host = {
-    name: "Jane Doe",
-    imgUrl: "/images/hosts/jane.jpg"
-}
-const doeHost: host = {
-    name: "Doe Jane",
-    imgUrl: "/images/hosts/doe.jpg"
-}
-const exampleHosts = {
-    main: janeHost,
+  const exampleHosts = {
+    main: marquesHost,
     guests: [doeHost]
 }
-export const EpisodesDataList : Array<IEpisodes> = [
+
+export const EpisodesDataList : Array<IEpisode> = [
     {
         id: 4,
         shortTitle: "Tesla Autopilot",
@@ -103,7 +89,10 @@ export const EpisodesDataList : Array<IEpisodes> = [
         tags: ["social class", "wealth"],
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
         isFeatured: true,
-        hosts: exampleHosts
+        hosts: {
+            main: marquesHost,
+            guests: [poterHost, janeHost]
+        }
     },
     {
         id: 5,

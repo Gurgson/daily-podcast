@@ -1,10 +1,14 @@
 import styled from "styled-components"
 import Logo from "../Logo/Logo"
-// import Paragraph from "../Text/Paragraph"
+import {FC} from "react"
 import SocialMediaIcon from "../Icons/SocialMediaIcon"
 import { SiAppstore, SiGoogleplay, SiInstagram, SiTiktok, SiTwitter } from "react-icons/si"
 import SponsorsCard from "../Cards/SponsorsCard/SponsorsCard"
-const FooterBottom = () => {
+import ColorScheme from "../../enums/ColorScheme"
+import { HashLink } from "react-router-hash-link"
+import FontSizes from "../../enums/FontSizes"
+
+const FooterBottom : FC = () => {
   return (
     <StyledContainer>
       <StyledFooterSection>
@@ -20,20 +24,20 @@ const FooterBottom = () => {
         </StyledText>
         
         <StyledRow>
-          <SocialMediaIcon href="https://twitter.com/" icon={<SiTwitter/>} color="--color-red"/>
-          <SocialMediaIcon href="https://instagram.com/" icon={<SiInstagram/>} color="--color-black"/>
-          <SocialMediaIcon href="https://tiktok.com/" icon={<SiTiktok/>} color="--color-black"/>
+          <SocialMediaIcon href="https://twitter.com/" icon={<SiTwitter/>} color={ColorScheme.red}/>
+          <SocialMediaIcon href="https://instagram.com/" icon={<SiInstagram/>} color={ColorScheme.black}/>
+          <SocialMediaIcon href="https://tiktok.com/" icon={<SiTiktok/>} color={ColorScheme.black}/>
         </StyledRow>
       </StyledFooterSection>
         
       <LinkContainer>
-        <StyledLink href="/About">About</StyledLink>
-        <StyledLink href="/#" isColored={true}>Testimonials</StyledLink>
-        <StyledLink href="/#">Features</StyledLink>
+        <StyledLink smooth to="/About">About</StyledLink>
+        <StyledLink className="link-colored" smooth to="/Home#Testimonials">Testimonials</StyledLink>
+        <StyledLink smooth to="/Home#Features">Features</StyledLink>
       </LinkContainer>
       <LinkContainer>
-        <StyledLink href="/About" isColored={true}>Episodes</StyledLink>
-        <StyledLink href="/#">Pricing</StyledLink>
+        <StyledLink className="link-colored" smooth to="/Home#Episodes">Episodes</StyledLink>
+        <StyledLink smooth to="/#">Pricing</StyledLink>
         {/* <StyledLink href="/#">Features</StyledLink> */}
       </LinkContainer>
       <StyledFooterSection>
@@ -44,8 +48,8 @@ const FooterBottom = () => {
         <>
         <StyledText>App aviable on:</StyledText>
         <StyledRow>
-          <SocialMediaIcon icon={<SiAppstore/>} color="--color-black" href="https://www.apple.com/app-store/" />
-          <SocialMediaIcon icon={<SiGoogleplay/>} color="--color-black" href="https://www.apple.com/app-store/" />
+          <SocialMediaIcon icon={<SiAppstore/>} color={ColorScheme.black} href="https://www.apple.com/app-store/" />
+          <SocialMediaIcon icon={<SiGoogleplay/>} color={ColorScheme.black} href="https://www.apple.com/app-store/" />
         </StyledRow>
         </>
       </StyledFooterSection>
@@ -64,23 +68,27 @@ const StyledBottom  = styled.div`
   width: 90%;
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid var(--color-grey);
+  border-top: 1px solid var(${ColorScheme.grey});
 
   
 `
-const StyledLink = styled.a<{isColored?: boolean}>`
-  color: var(${p=>(p.isColored)?"--color-red":"--color-black"});
-  font-size: var(--fs-body);
+
+const StyledLink = styled(HashLink)`
+  color: var(${ColorScheme.black});
+  font-size: var(${FontSizes.body});
   text-decoration: none;
   display: block;
+  &.link-colored {
+    color: var(${ColorScheme.red})
+  }
 `
 const StyledText = styled.span`
-  color: var(--color-grey);
+  color: var(${ColorScheme.grey});
   line-height: 160%;
-  font-size: var(--fs-caption);
+  font-size: var(${FontSizes.caption});
   text-align: none;
   & > a {
-    color: var(--color-red);
+    color: var(${ColorScheme.red});
     text-decoration: none;
   }
 `
@@ -89,7 +97,7 @@ const StyledFooterSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4rem;
-  justify-content: space-around;
+  justify-content: space-evenly;
 `
 const StyledRow = styled.div`
   display: flex;
@@ -100,7 +108,7 @@ const StyledContainer = styled.div`
   padding: 14rem;
   padding-bottom: 8rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
 `
 const LinkContainer = styled(StyledFooterSection)`
@@ -111,6 +119,6 @@ const LinkContainer = styled(StyledFooterSection)`
 `
 const StyledTextPrivacyAndTerms = styled(StyledText)`
 & > a {
-  color: var(--color-grey);
+  color: var(${ColorScheme.grey});
 }`
 export default FooterBottom

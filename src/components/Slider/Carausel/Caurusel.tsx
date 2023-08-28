@@ -5,9 +5,9 @@ import { StyledOutlinedButton } from "../../Button/Button"
 import { ButtonSize } from "../../Button/IButton"
 import { flexCenter } from "../../../styles/mixins"
 import { SwipeableHandlers, useSwipeable } from "react-swipeable"
+import ColorScheme from "../../../enums/ColorScheme"
 interface ICauruselProps  {
     children: ReactNode,
-    controlls?: boolean
 }
 const Caurusel:FC<ICauruselProps> = (props) => {
     const [index, setIndex] = useState<number>(0);
@@ -55,7 +55,7 @@ const Caurusel:FC<ICauruselProps> = (props) => {
             {/* {props.controlls &&  */}
             <StyledButtons>
                 <StyledButton onClick={moveRight}  size={ButtonSize.small}> &lt; </StyledButton>    
-                <StyledButton onClick={moveLeft} size={ButtonSize.small} textColor="--color-red" borderColor="--color-red"> &gt; </StyledButton>    
+                <StyledButton onClick={moveLeft} size={ButtonSize.small} color={ColorScheme.red} borderColor={ColorScheme.red}> &gt; </StyledButton>    
             </StyledButtons>
         </StyledCaurusel>
     )

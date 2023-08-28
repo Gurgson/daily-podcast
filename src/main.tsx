@@ -1,23 +1,31 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import GlobalStyles from "./styles/globalStyles";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import Landing from "./page/Landing";
 import Footer from "./components/Footer/Footer";
 import Navigation from "./components/Navigation/Navigation";
+import Episode from "./page/Episode";
+import {AnimatePresence } from "framer-motion";
+import About from "./page/About";
+import { Routes } from "react-router-dom";
+
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
       <GlobalStyles />
       <BrowserRouter>
       <Navigation/>
-        <Routes>
-          <Route path='/' element={<Landing />}>
+        <AnimatePresence>
+          <Routes>
+            <Route index path='/Home' element={<Landing />}/>
+            <Route path='/' element={<Landing />}/>
             
-          </Route>
-        </Routes>
+            <Route path='/About' element={<About />}/>
+            <Route path='Episode/:query' element={<Episode />}/>
+          </Routes>
+        </AnimatePresence>
         <Footer/>
       </BrowserRouter>
-
   </React.StrictMode>
 );

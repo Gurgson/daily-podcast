@@ -6,31 +6,33 @@ import Decoration from "../Decoration/Decoration"
 import { DecorationHorizontalPosition } from "../Decoration/IDecoration"
 import SocialMediaIcon from "../Icons/SocialMediaIcon"
 import { SiGooglepodcasts, SiSpotify, SiYoutube } from "react-icons/si"
+import ColorScheme from "../../enums/ColorScheme"
+import FontSizes from "../../enums/FontSizes"
 const FooterTop = () => {
   return (
     <StyledContainer>
         <StyledTopHeader>
-          <Button type={ButtonType.Outlined} size={ButtonSize.small} textColor="--color-red" borderColor="--color-red-light;">Beta</Button>
-          <Paragraph lineHeight="120%" fontSize="--fs-heading" fontWeight={700} wordSpacing="-1px">Avalaible now </Paragraph>
-          <Paragraph lineHeight="120%" fontSize="--fs-heading" fontWeight={700} wordSpacing="-1px">Pod Of Casts App </Paragraph>
-          <Paragraph fontSize="--fs-smallHeading" color="--color-grey" lineHeight="160%"> We just launched out podcast </Paragraph>
+          <Button type={ButtonType.Outlined} size={ButtonSize.small} textColor={ColorScheme.red} borderColor={ColorScheme.lightRed}>Beta</Button>
+          <Paragraph lineHeight="120%" fontSize={FontSizes.heading} fontWeight={700} wordSpacing="-1px">Avalaible now </Paragraph>
+          <Paragraph lineHeight="120%" fontSize={FontSizes.heading} fontWeight={700} wordSpacing="-1px">Pod Of Casts App </Paragraph>
+          <Paragraph fontSize={FontSizes.smallHeading} color={ColorScheme.grey} lineHeight="160%"> We just launched out podcast </Paragraph>
         </StyledTopHeader>
         <StyledBottomHeader>
           <StyledRelativDiv>
-          <Decoration vertical={-100} horizontal={80} z={10} href="decorations/Sparkle.svg"/>
+          <Decoration vertical={-100} horizontal={80} z={10} href="/decorations/Sparkle.svg"/>
             <Button type={ButtonType.Fill} size={ButtonSize.big}>Download now</Button>
             
           
           </StyledRelativDiv>
-          <Paragraph margin="1.4rem" fontSize="--fs-caption"> Content also available on:</Paragraph>
+          <Paragraph margin="1.4rem" fontSize={FontSizes.caption}> Content also available on:</Paragraph>
           <StyledIconsContainer>
-            <SocialMediaIcon icon={<SiGooglepodcasts/>} href="https://podcasts.google.com/" color="--color-black"/>
-            <SocialMediaIcon icon={<SiSpotify/>} href="https://open.spotify.com/genre/podcasts-web" color="--color-black"/>
-            <SocialMediaIcon icon={<SiYoutube/>} href="https://youtube.com/" color="--color-black"/>
+            <SocialMediaIcon icon={<SiGooglepodcasts/>} href="https://podcasts.google.com/" color={ColorScheme.black}/>
+            <SocialMediaIcon icon={<SiSpotify/>} href="https://open.spotify.com/genre/podcasts-web" color={ColorScheme.black}/>
+            <SocialMediaIcon icon={<SiYoutube/>} href="https://youtube.com/" color={ColorScheme.black}/>
           </StyledIconsContainer>
         </StyledBottomHeader>
-        <Decoration href="images/Footer/left.png" vertical={50}  horizontal={DecorationHorizontalPosition.left} />
-        <Decoration href="images/Footer/right.png" vertical={25}  horizontal={75} />
+        <Decoration href="/images/Footer/left.png" vertical={50}  horizontal={DecorationHorizontalPosition.left} />
+        <Decoration href="/images/Footer/right.png" vertical={25}  horizontal={75} />
     </StyledContainer>
   )
 }
@@ -64,8 +66,8 @@ const StyledContainer = styled.div`
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
-    background-color: var(--color-blue-light);
-    border-bottom: 1px solid var(--color-grey);
+    background-color: var(${ColorScheme.lightBlue});
+    border-bottom: 1px solid var(${ColorScheme.grey});
 
     padding:10rem 0 14rem 0;
     & > p:first-child{

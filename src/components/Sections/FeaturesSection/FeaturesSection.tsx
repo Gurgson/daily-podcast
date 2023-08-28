@@ -4,16 +4,17 @@ import styled from 'styled-components'
 import Benefits from '../../../Data/Benefits'
 import BenefitCards from '../../Cards/BenefitCards/BenefitCards'
 import { flexCenter } from '../../../styles/mixins'
+import FontSizes from '../../../enums/FontSizes'
+import ColorScheme from '../../../enums/ColorScheme'
 
 
 const FeaturesSection = () => {
   return (
-    <Section>
-        
+    <Section id='Features'> 
         <StyledHeader>
-            <Paragraph fontSize='--fs-heading' lineHeight='120%' fontWeight={700}> Membership benefits</Paragraph>
+            <Paragraph fontSize={FontSizes.heading} lineHeight='120%' fontWeight={700}> Membership benefits</Paragraph>
         </StyledHeader>
-        <Paragraph fontSize='--fs-smallHeading' lineHeight='160%' color='--color-grey'>Their experience throughout every platform</Paragraph>
+        <Paragraph fontSize={FontSizes.smallHeading} lineHeight='160%' color={ColorScheme.grey}>Their experience throughout every platform</Paragraph>
         <CardContainer>
             {Benefits.map((item,index)=> <BenefitCards benefits={item}  key={`featureCard-${index}`}/>)}
         </CardContainer>
