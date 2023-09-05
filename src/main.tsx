@@ -9,6 +9,7 @@ import Episode from "./page/Episode";
 import {AnimatePresence } from "framer-motion";
 import About from "./page/About";
 import { Routes } from "react-router-dom";
+import NavigateToTopButton from "./components/NavigateToTopButton/NavigateToTopButton";
 
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
@@ -18,14 +19,16 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <Navigation/>
         <AnimatePresence>
           <Routes>
-            <Route index path='/Home' element={<Landing />}/>
-            <Route path='/' element={<Landing />}/>
+            <Route index path='/' element={<Landing />}/>
+            <Route  path='/Home' element={<Landing />}/>
+            
             
             <Route path='/About' element={<About />}/>
-            <Route path='Episode/:query' element={<Episode />}/>
+            <Route path='/Episode/:query' element={<Episode />}/>
           </Routes>
         </AnimatePresence>
         <Footer/>
+        <NavigateToTopButton/>
       </BrowserRouter>
   </React.StrictMode>
 );

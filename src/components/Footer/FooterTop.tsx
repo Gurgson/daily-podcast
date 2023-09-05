@@ -19,7 +19,7 @@ const FooterTop = () => {
         </StyledTopHeader>
         <StyledBottomHeader>
           <StyledRelativDiv>
-          <Decoration vertical={-100} horizontal={80} z={10} href="/decorations/Sparkle.svg"/>
+          <Decoration  vertical={-100} horizontal={80} z={10} href="/decorations/Sparkle.svg"/>
             <Button type={ButtonType.Fill} size={ButtonSize.big}>Download now</Button>
             
           
@@ -31,7 +31,7 @@ const FooterTop = () => {
             <SocialMediaIcon icon={<SiYoutube/>} href="https://youtube.com/" color={ColorScheme.black}/>
           </StyledIconsContainer>
         </StyledBottomHeader>
-        <Decoration href="/images/Footer/left.png" vertical={50}  horizontal={DecorationHorizontalPosition.left} />
+        <Decoration visableWhenWidthOver={650} href="/images/Footer/left.png" vertical={50}  horizontal={DecorationHorizontalPosition.left} />
         <Decoration href="/images/Footer/right.png" vertical={25}  horizontal={75} />
     </StyledContainer>
   )

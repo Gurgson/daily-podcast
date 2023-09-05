@@ -12,10 +12,9 @@ interface IHeaderProps{
 const Header:FC<IHeaderProps> = (props) => {
   return (
     <StyledHeader>
-        <Decoration href='/decorations/header-decoration-1.svg' horizontal={DecorationHorizontalPosition.left} vertical={DecorationVerticalPosition.top}/>
+        <Decoration visableWhenWidthOver={900} href='/decorations/header-decoration-1.svg' horizontal={DecorationHorizontalPosition.left} vertical={DecorationVerticalPosition.top}/>
         <Decoration href='/decorations/header-decoration-2.png' horizontal={85} vertical={15}/>
-
-          {props.children}
+        {props.children}
         
     </StyledHeader>
   )
@@ -31,6 +30,7 @@ const StyledHeader = styled.header`
     align-items: center;
     padding: 6rem 0;
     padding-bottom: 6rem;
+    
     
 `
 

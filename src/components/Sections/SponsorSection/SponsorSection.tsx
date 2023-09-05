@@ -4,15 +4,16 @@ import ColorScheme from '../../../enums/ColorScheme'
 import Caurusel from '../../Slider/Carausel/Caurusel'
 import sponsorsData, { ISponsor } from '../../../Data/Sponsors'
 import SponsorCard from '../../Cards/SponsorCard'
-import Paragraph, { StyledParagraph } from '../../Text/Paragraph'
+import { StyledParagraph } from '../../Text/Paragraph'
 import styled from 'styled-components'
 import FontSizes from '../../../enums/FontSizes'
+import Headline from '../../Headline.tsx/Headline'
 
 const SponsorSection :FC= () => {
   return (
-    <Section bgcolor={ColorScheme.lightRed}>
+    <Section id='Sponsors' bgcolor={ColorScheme.lightRed}>
         <StyledTitle lineHeight='160%' fontSize={FontSizes.heading} fontWeight={700}>Our Sponsor</StyledTitle>
-        <Paragraph fontSize={FontSizes.smallHeading} lineHeight='160%' color={ColorScheme.grey}> Our current official sponsor</Paragraph>
+        <Headline sub="Our current official sponsor"/>
         <Caurusel>
             {sponsorsData.map((item:ISponsor,index)=><SponsorCard sponsorImg={item.sponsorImg} desription={item.desription} key={`Sponsor card -${index}`}/>)}
         </Caurusel>

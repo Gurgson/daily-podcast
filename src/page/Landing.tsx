@@ -15,19 +15,20 @@ import { useEffect, useRef, useState } from "react"
 import EpisodeListSection from "../components/Sections/EpisodeListSection/EpisodeListSection"
 import FontSizes from "../enums/FontSizes"
 import ColorScheme from "../enums/ColorScheme"
+import Page from "../components/Page/Page"
 
 const Landing = () => {
   const [CauruselWidth, setCauruselWidth] = useState<number>(0);
-  const CauruselRow = useRef<HTMLDivElement>(null);
+  const CauruselRef = useRef<HTMLDivElement>(null);
 
     useEffect(()=>{
-      if(CauruselRow.current)
-        setCauruselWidth(CauruselRow.current.scrollWidth - CauruselRow.current.offsetWidth);
-    },[])
+      if(CauruselRef.current)
+        setCauruselWidth(CauruselRef.current.scrollWidth - CauruselRef.current.offsetWidth);
+    },[CauruselWidth])
   
   const cauruselItems = EpisodesDataList.filter((item:IEpisode)=>item.isFeatured === true).map((item : IEpisode, index)=><EpisodeCard applyTitle={true} cover={item} key={`${item.shortTitle}-cover-card-${index}`}/>);
   return (
-    <> 
+    <Page props={{documentTitle: "Pod of cast, your daily podcast"}}> 
       <Header>
         <StyledTextContainer>
           <Paragraph fontSize={FontSizes.displayHeading} fontWeight={700}> Your daily</Paragraph>
@@ -39,12 +40,12 @@ const Landing = () => {
           
         </StyledTextContainer>  
         <Button type={ButtonType.Fill} size={ButtonSize.big}>Subscribe</Button>
-        <CauruselContainer>
-          <StyledDraggableCaurusel drag="x" dragConstraints={{right:0, left:-CauruselWidth}} whileDrag={{cursor: "grabbing", scale: 0.95}} whileHover={{cursor:"grab"}}>
+        <CauruselContainer ref={CauruselRef}>
+          <StyledDraggableCaurusel animate={{translateX: -CauruselWidth/2}} drag="x" dragConstraints={{right:CauruselWidth/2 , left:-CauruselWidth}} whileDrag={{cursor: "grabbing", scale: 0.95}} whileHover={{cursor:"grab"}}>
             {
               cauruselItems
             }
-          </StyledDraggableCaurusel>
+          </StyledDraggableCaurusel>x
         </CauruselContainer>
         
 
@@ -57,7 +58,7 @@ const Landing = () => {
       <TesimonialsSection/>
       <FeaturesSection/>
       <EpisodeListSection/>
-    </>
+    </Page>
      
 
     
@@ -68,7 +69,7 @@ const StyledDraggableCaurusel = styled(motion.div)`
   gap: 2rem;
   
 `
-const CauruselContainer = styled.div`
+const CauruselContainer = styled(motion.div)`
   margin: 6rem 0;
   overflow: hidden;
   width: 100%;

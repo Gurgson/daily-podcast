@@ -10,7 +10,8 @@ export const variables = css`
         --color-red: #CD4631;
         --color-red-light: #f9ede8;
         --color-white: #fefefe;
-    
+
+        
 
         // GRADIENTS
          
@@ -19,7 +20,7 @@ export const variables = css`
         --fs-displayHeading: 9.6rem;
         --fs-heading: 6rem;
         --fs-subheading: 3.6rem;
-        --fs-smallheading: 2.2rem;
+        --fs-smallHeading: 2.2rem;
         --fs-body: 1.6rem;
         --fs-caption: 1.4rem;
         --fs-small: 1.2rem;

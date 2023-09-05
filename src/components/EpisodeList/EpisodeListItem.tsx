@@ -39,7 +39,7 @@ const CoverCardListItem:FC<IProps>= (props) => {
         }  
     }
   return (
-    <StyledLink to={`Episode/episode-${props.cover.id}`} >
+    <StyledLink to={`/Episode/${props.cover.id + 1}`} >
         <StyledContainer variants={animationSet} initial="start" whileHover="hover" whileInView="end" viewport={{ once: true }}>
             <img src={props.cover.imgUrl} alt={`${props.cover.shortTitle} podcast image`}/>
             <StyledCardInfo>
@@ -54,8 +54,8 @@ const CoverCardListItem:FC<IProps>= (props) => {
                 </StyledTags>
                 <StyledHosts>
                     <span>Hosted by:</span>
-                    <StyledImg index={0} src={props.cover.hosts.main.imgUrl} alt="main host image"/>
-                    {props.cover.hosts.guests.map((guest, index)=> <StyledImg index={index+1} key={`guest-image-${index}`} src={guest.imgUrl} alt={`${index} guest img`}/>)}
+                    <StyledAvatar index={0} src={props.cover.hosts.main.imgUrl} alt="main host image"/>
+                    {props.cover.hosts.guests.map((guest, index)=> <StyledAvatar index={index+1} key={`guest-image-${index}`} src={guest.imgUrl} alt={`${index} guest img`}/>)}
                 </StyledHosts>
             </StyledBottom>
         </StyledContainer>
@@ -71,7 +71,7 @@ const StyledLink = styled(Link)`
 interface ImgProps {
     index: number
 }
-const StyledImg = styled.img<ImgProps>`
+export const StyledAvatar = styled.img<ImgProps>`
     border: 0.5rem solid var(${ColorScheme.white});
     width: 2.5rem;
     height: 2.5rem;
@@ -90,7 +90,7 @@ const StyledHosts = styled.div`
     
     
 `
-const StyledTags = styled.div`
+export const StyledTags = styled.div`
     display: flex;
     gap: .6rem;
     & > div {
@@ -125,7 +125,7 @@ const StyledCardInfo = styled.div`
 `
 const StyledContainer = styled(motion.div)`
     width: 57rem;
-    /* min-height: 25rem; */
+
     background-color: var(${ColorScheme.white});
     border: 2px solid var(${ColorScheme.white});
     border-radius: 1.2rem;

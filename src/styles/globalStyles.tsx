@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import { reset } from "./reset";
 import { variables } from "./variables";
+import ColorScheme from "../enums/ColorScheme";
 
 const GlobalStyles = createGlobalStyle`
     ${reset}
@@ -9,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
     html {
         font-size: 62.5%;
         scroll-behavior: smooth;
+        overflow-x: hidden;
         @font-face {
             font-family: "MontserratAlternates";
             src: url('/fonts/Montserrat_Alternates/MontserratAlternates-Regular.ttf') format('truetype');
@@ -21,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
 
     body {
         font-family: 'MontserratAlternates';
-        background-color: white;
+        background-color: var(${ColorScheme.white});
         
     }
 `;

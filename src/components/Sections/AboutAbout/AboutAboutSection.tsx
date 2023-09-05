@@ -1,5 +1,5 @@
 import Section from '../Section/Section'
-import Paragraph, { StyledParagraph } from '../../Text/Paragraph'
+import { StyledParagraph } from '../../Text/Paragraph'
 import styled from 'styled-components'
 import { flexCenter } from '../../../styles/mixins'
 import FontSizes from '../../../enums/FontSizes'
@@ -7,13 +7,13 @@ import ColorScheme from '../../../enums/ColorScheme'
 import HostCard from '../../Cards/HostCard/HostCard'
 import { marquesHost, poterHost } from '../../../Data/Hosts'
 import Decoration from '../../Decoration/Decoration'
+import Headline from '../../Headline.tsx/Headline'
 
 const AboutAboutSection = () => {
   return (
     <Section>
       <StyledHeader>
-        <Paragraph fontSize={FontSizes.heading} lineHeight='120%' fontWeight={700} wordSpacing='-1px'>What our listeners say</Paragraph>
-        <Paragraph lineHeight='160%' color={ColorScheme.grey} fontSize={FontSizes.smallHeading}>Their expierience thoughout every platform</Paragraph>
+        <Headline main='What our listeners say' sub="Their experience throughout every platform"/>
       </StyledHeader>
 
       <StyledImg src="/images/about.png" alt="About section image"/>

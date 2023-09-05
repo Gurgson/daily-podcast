@@ -7,16 +7,21 @@ import ColorScheme from '../../../enums/ColorScheme';
 import FontSizes from '../../../enums/FontSizes';
 interface IStyledContainerProps{
   imageUrl: string
+  isSmall?: boolean
+  isShadowed?: boolean
 }
 interface IProps {
   cover: IEpisode
   applyTitle: boolean
+  isSmall?: boolean
+  isShadowed?: boolean
+  
 
 }
 const EpisodeCard : FC<IProps>= (props) => {
 
   return (
-    <StyledEpisodeCardContainer imageUrl={props.cover.imgUrl  }>
+    <StyledEpisodeCardContainer isShadowed={props.isShadowed || false} imageUrl={props.cover.imgUrl} isSmall={props.isSmall || false}>
       <StyledSocialMediaBar>
         {props.cover.gpodcast && <SocialMediaIcon icon={<SiGooglepodcasts></SiGooglepodcasts>}  href={props.cover.gpodcast}/>}
         {props.cover.spotify && <SocialMediaIcon icon={<SiSpotify></SiSpotify>}  href={props.cover.spotify}/>}
@@ -36,10 +41,11 @@ const StyledSocialMediaBar = styled.div`
   
 `
 export const StyledEpisodeCardContainer = styled.div<IStyledContainerProps>`
-  width: 37rem;
-  min-width: 37rem;
-  height: 37rem;
+  width: ${p=>p.isSmall?"18.6rem":"37rem"};
+  min-width: ${p=>p.isSmall?"18.6rem":"37rem"};
+  height: ${p=>p.isSmall?"18.6rem":"37rem"};
   background-image: url(${p=>p.imageUrl});
+  box-shadow: ${p=>p.isShadowed?`0.5rem 0.5rem 0 0 var(${ColorScheme.blue});`:""};
   background-size: cover;
   position: relative;
   border-radius: 12px;

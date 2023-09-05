@@ -18,8 +18,8 @@ const Section :FC<IProps> = (props) => {
 export const StyledSection = styled.section<IProps>`
   min-height: 60rem;
   position: relative;
-  padding: 10rem;
-  ${flexCenter}
+  padding: 10rem 10rem;
+  ${flexCenter};
   flex-direction: column;
   background-color: var(${p => p.bgcolor?p.bgcolor: ColorScheme.white });
   &::before {

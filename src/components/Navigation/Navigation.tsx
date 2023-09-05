@@ -1,123 +1,53 @@
-import  { FC, useRef, useState } from 'react'
+import  { FC, useState, useEffect } from 'react'
 import styled from 'styled-components'
-import NavigationItem from './NavigationItem'
-import Button from '../Button/Button'
-import { ButtonType, ButtonSize} from '../Button/IButton'
-import Logo from '../Logo/Logo'
 import FontSizes from '../../enums/FontSizes'
 import ColorScheme from '../../enums/ColorScheme'
+import { motion } from 'framer-motion'
+import useScrollPosition from '../../hooks/useScrollPosition'
+import { useViewport } from '../../hooks/useViewport'
+import DesktopNavigation from './DesktopNavigation'
+import MobileNavigation from './MobileNavigation'
 
 
 
 const Navigation:FC = () => {
-  const [isDropped, setDrop] = useState<boolean>(false);
-  const dropdownMenu = useRef<HTMLUListElement>(null);
-  const isDropdownVisible = ()=>{
-  if(!dropdownMenu.current)
-    return;
-  if(isDropped){
-      dropdownMenu.current.style.opacity ="0";
-      setDrop(false);
-    }else {
-      dropdownMenu.current.style.opacity ="1";
-      setDrop(true);
-    }
-  }
+    const [isBig, setBig] = useState<boolean>(false);
+    const [viewportWidth, setViewportWidth] = useState<number>(0);
+    const scrollPosY = useScrollPosition()
+    useEffect(()=>{
+      setBig((scrollPosY > 200));
+    }, [scrollPosY])
+    const width = useViewport()
+    useEffect(()=>{
+      setViewportWidth(width)
+    },[width])
+  
   return (
-    <StyledNav id='top'>
-        <Logo/>
-        <StyledMenu>
-        <NavigationItem body="Episodes" href="/Home#Episodes"/>
-        <NavigationItem body="About" href="/About"/>
-          <Dropdown>
-          <span onClick={isDropdownVisible}>More</span>
-          <ul ref={dropdownMenu}>
-            <NavigationItem  body="Option1" href="/#"/>
-            <NavigationItem  body="Option2" href="/#"/>
-            <NavigationItem  body="Option3" href="/#"/>
-          </ul>
-          </Dropdown>
-        </StyledMenu>
+    <StyledNav initial={{height:"120px"}} animate={{height:(!isBig)?"120px":"80px",transition: {duration:0.5}}}>        
+        {viewportWidth>900?<DesktopNavigation/>:<MobileNavigation/>}
         
-        <StyledButtons>
-          <NavigationItem body={<Button type={ButtonType.Outlined} size={ButtonSize.small}>Recent Episodes</Button>} href="/Home#Episodes"/>
-          <NavigationItem body={<Button type={ButtonType.Fill} size={ButtonSize.small}>Subscribe</Button>} href="/Home#Features"/>
-        </StyledButtons>
-        
-
+      
     </StyledNav>
   )
 }
-const StyledMenu = styled.div`
-  display: flex;
-  
-  align-items: center;
-  gap: 6rem;
-  
-`
-const StyledButtons = styled.div`
-  display: flex;
-  gap: 2rem;
-  
-`
-const Dropdown = styled.div`
-  position: relative;
-  cursor: pointer;
-  & span {
-    padding: 1rem;
-    &::after{
-      position: absolute;
-      padding: 0.2rem;
-      right: -1.5rem;
-      top: calc(50% - 1rem);
-      content: "";
-      background-repeat: no-repeat;
-      background-size: cover;
-      display: block;
-      height: 1.6rem;
-      width: 1.6rem;
-      background-image: url('/decorations/arrow-down.svg');
-      transition: 1s;
-    
 
-
-    }
-    
-  }
-  & > ul {
-    position: absolute;
-    opacity: 0;
-    transition: 1s;
-    z-index: 25;
-  }
-  & ul > * {
-   
-    top: (r100% + 0.25rem);
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    & > * {
-      padding: 1rem;
-      width: 10rem;
-    }
-    opacity: 1;
-  }
-  `;
-const StyledNav = styled.nav`
+const StyledNav = styled(motion.nav)`
   text-decoration: none;
   font-size: var(${FontSizes.body});
   color: var(${ColorScheme.black});
+  font-weight: 700;
   display: flex;
+  position: fixed;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
-  margin: 0 auto;
+  width: 100vw;
   background-color: transparent;
-  max-height: 75px;
-  height: 75px;
-  flex-shrink: 0;
   background-color:var(${ColorScheme.lightRed});
-  
+  z-index: 200;
+  max-width: 100%;
+  border-bottom: 1px solid var(${ColorScheme.grey});
+  -webkit-backface-visibility: hidden;
+
 `
 
 export default Navigation

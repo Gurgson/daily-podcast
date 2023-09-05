@@ -25,7 +25,7 @@ const StyledContainer = styled.div`
     border: 2px solid var(${ColorScheme.black});
     background: var(${ColorScheme.white});
     height: 17.5rem;
-    width: 53.6rem;
+    min-width: 53.6rem;
     gap: 3rem;
     text-align: center;
     & > hr{

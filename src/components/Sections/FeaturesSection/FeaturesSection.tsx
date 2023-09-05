@@ -1,20 +1,19 @@
 import Section from '../Section/Section'
-import Paragraph from '../../Text/Paragraph'
 import styled from 'styled-components'
 import Benefits from '../../../Data/Benefits'
 import BenefitCards from '../../Cards/BenefitCards/BenefitCards'
 import { flexCenter } from '../../../styles/mixins'
-import FontSizes from '../../../enums/FontSizes'
-import ColorScheme from '../../../enums/ColorScheme'
+import Headline from '../../Headline.tsx/Headline'
+
 
 
 const FeaturesSection = () => {
   return (
     <Section id='Features'> 
         <StyledHeader>
-            <Paragraph fontSize={FontSizes.heading} lineHeight='120%' fontWeight={700}> Membership benefits</Paragraph>
+            <Headline main='Membership'/>
         </StyledHeader>
-        <Paragraph fontSize={FontSizes.smallHeading} lineHeight='160%' color={ColorScheme.grey}>Their experience throughout every platform</Paragraph>
+        <Headline sub="Their experience throughout every platform"/>
         <CardContainer>
             {Benefits.map((item,index)=> <BenefitCards benefits={item}  key={`featureCard-${index}`}/>)}
         </CardContainer>

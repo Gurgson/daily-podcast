@@ -28,6 +28,7 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  overflow: hidden;
   padding: 6rem;
   background-color: var(${ColorScheme.white});
   border-radius: 8px;

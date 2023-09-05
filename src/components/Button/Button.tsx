@@ -1,4 +1,4 @@
-import { FC, useState } from "react"
+import { FC, useState, ReactNode } from "react"
 import { ButtonSize, ButtonType } from "./IButton"
 import styled, { css } from "styled-components"
 import { TargetAndTransition, motion } from "framer-motion";
@@ -12,7 +12,7 @@ interface IStyledButtonProps  {
 interface IButtonProps extends IStyledButtonProps {
     type: ButtonType,
     handleClick?: React.MouseEventHandler<HTMLButtonElement>;
-    children: string
+    children: ReactNode
 }
 interface IHoverAnimations {
     onHoverStart: () => void,

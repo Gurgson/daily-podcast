@@ -9,11 +9,13 @@ import styled from 'styled-components'
 import FontSizes from '../enums/FontSizes'
 import ColorScheme from '../enums/ColorScheme'
 import SponsorSection from '../components/Sections/SponsorSection/SponsorSection'
+import ContactSection from '../components/Sections/ContactSection/ContactSection'
+import {FC} from "react"
+import Page from '../components/Page/Page'
 
-const About = () => {
-  
+const About:FC = () => {
   return (
-    <>
+    <Page props={{documentTitle:"Learn about Pod of Cast!"}}>
       <Header>
         <Paragraph fontSize={FontSizes.displayHeading} fontWeight={700}>About</Paragraph>
         <Paragraph fontSize={FontSizes.displayHeading} color={ColorScheme.red} fontWeight={700}>Pod of Cast</Paragraph>
@@ -30,7 +32,8 @@ const About = () => {
       </Header>
       <AboutAboutSection/>
       <SponsorSection/>
-    </>
+      <ContactSection/>
+    </Page>
   )
 }
 const StyledResults = styled.div`

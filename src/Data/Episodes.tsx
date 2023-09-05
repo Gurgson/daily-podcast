@@ -16,12 +16,14 @@ export type IEpisode = {
         guests: Array<IHost>
     },
     isFeatured: boolean
+    createdAt: Date,
+    duration: number,
+    audio: string
   }
   const exampleHosts = {
     main: marquesHost,
     guests: [doeHost]
 }
-
 export const EpisodesDataList : Array<IEpisode> = [
     {
         id: 4,
@@ -34,7 +36,10 @@ export const EpisodesDataList : Array<IEpisode> = [
         tags: ["automation", "tech "],
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac ultrices odio.",
         isFeatured: true,
-        hosts: exampleHosts
+        hosts: exampleHosts,
+        createdAt: new Date(2023, 7, 20),
+        duration: 5000,
+        audio: "/lorem.mp3"
     },
     {
         id: 2,
@@ -50,7 +55,10 @@ export const EpisodesDataList : Array<IEpisode> = [
         hosts: {
             main: exampleHosts.main,
             guests: [doeHost, poterHost]
-        }
+        },
+        createdAt: new Date(2023, 5, 20),
+        duration: 3500,
+        audio: "/lorem.mp3"
     },
     {
         id: 0 ,
@@ -63,7 +71,10 @@ export const EpisodesDataList : Array<IEpisode> = [
         tags: ["mind-behaviour", "health"],
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac ultrices odio.",
         isFeatured: true,
-        hosts: exampleHosts
+        hosts: exampleHosts,
+        createdAt: new Date(2023, 3, 20),
+        duration: 6000,
+        audio: "/lorem.mp3"
     },
     {
         id: 3,
@@ -76,13 +87,16 @@ export const EpisodesDataList : Array<IEpisode> = [
         tags: ["women's rights"],
         description: " ",
         isFeatured: true,
-        hosts: exampleHosts
+        hosts: exampleHosts,
+        createdAt: new Date(2023, 6, 20),
+        duration: 4320,
+        audio: "/lorem.mp3"
     },
     {
         id: 1,
         shortTitle: "Social Class",
         fullTitle: "Type of Social Classes of People",
-        imgUrl: "/images/Covers/5.png",
+        imgUrl: "/images/Covers/0.png",
         youtube: "https://www.youtube.com/",
         spotify: "https://open.spotify.com/genre/podcasts-web",
         gpodcast: "https://podcasts.google.com/",
@@ -92,7 +106,10 @@ export const EpisodesDataList : Array<IEpisode> = [
         hosts: {
             main: marquesHost,
             guests: [poterHost, janeHost]
-        }
+        },
+        createdAt: new Date(2023, 4, 20),
+        duration: 4400,
+        audio: "/lorem.mp3"
     },
     {
         id: 5,
@@ -105,7 +122,10 @@ export const EpisodesDataList : Array<IEpisode> = [
         tags: ["covid-19", "health"],
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac ultrices odio.",
         isFeatured: false,
-        hosts: exampleHosts
+        hosts: exampleHosts,
+        createdAt: new Date(2023, 8, 20),
+        duration: 3500,
+        audio: "/lorem.mp3"
     },
 
 ]

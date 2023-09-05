@@ -27,6 +27,7 @@ export const StyledParagraph = styled.p<IStyledParagraph>`
     line-height: ${p=> p.lineHeight || "100%"};
     font-weight: ${p=>p.fontWeight || 500};
     word-spacing: ${p=>p.wordSpacing || 0};
+    text-align: center;
   
 `
 export default Paragraph
