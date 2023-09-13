@@ -28,6 +28,6 @@ const Page :FC<IProps>= ({props, children}) => {
   )
 }
 const StyledPage = styled(motion.main)`
-    padding-top: 75px;
+    padding-top: 100px;
 `
 export default Page

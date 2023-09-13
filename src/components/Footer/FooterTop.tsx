@@ -8,14 +8,15 @@ import SocialMediaIcon from "../Icons/SocialMediaIcon"
 import { SiGooglepodcasts, SiSpotify, SiYoutube } from "react-icons/si"
 import ColorScheme from "../../enums/ColorScheme"
 import FontSizes from "../../enums/FontSizes"
+import Headline from "../Headline.tsx/Headline"
 const FooterTop = () => {
   return (
     <StyledContainer>
         <StyledTopHeader>
-          <Button type={ButtonType.Outlined} size={ButtonSize.small} textColor={ColorScheme.red} borderColor={ColorScheme.lightRed}>Beta</Button>
-          <Paragraph lineHeight="120%" fontSize={FontSizes.heading} fontWeight={700} wordSpacing="-1px">Avalaible now </Paragraph>
-          <Paragraph lineHeight="120%" fontSize={FontSizes.heading} fontWeight={700} wordSpacing="-1px">Pod Of Casts App </Paragraph>
-          <Paragraph fontSize={FontSizes.smallHeading} color={ColorScheme.grey} lineHeight="160%"> We just launched out podcast </Paragraph>
+          <Button type={ButtonType.Outlined} size={ButtonSize.small} textColor={ColorScheme.red} borderColor={ColorScheme.red}>Beta</Button>
+          <Headline main="Available now"/>
+          <Headline main="Pod Of Casts" color={ColorScheme.red}/>
+          <Headline sub="We just launched out podcast"/>
         </StyledTopHeader>
         <StyledBottomHeader>
           <StyledRelativDiv>
@@ -32,7 +33,7 @@ const FooterTop = () => {
           </StyledIconsContainer>
         </StyledBottomHeader>
         <Decoration visableWhenWidthOver={650} href="/images/Footer/left.png" vertical={50}  horizontal={DecorationHorizontalPosition.left} />
-        <Decoration href="/images/Footer/right.png" vertical={25}  horizontal={75} />
+        <Decoration visableWhenWidthOver={500} href="/images/Footer/right.png" vertical={25}  horizontal={75} />
     </StyledContainer>
   )
 }
@@ -49,9 +50,9 @@ const StyledIconsContainer = styled.div`
 const StyledTopHeader = styled.div`
   display: flex;
   align-items: center;
-  padding: 10rem;
-  z-index: 10;
+  padding: 10rem 1rem;
   flex-direction: column;
+  gap: 1rem;
 `
 const StyledBottomHeader = styled.div`
   display: flex;
@@ -68,7 +69,7 @@ const StyledContainer = styled.div`
     flex-direction: column;
     background-color: var(${ColorScheme.lightBlue});
     border-bottom: 1px solid var(${ColorScheme.grey});
-
+    z-index: 1;
     padding:10rem 0 14rem 0;
     & > p:first-child{
         margin: 2.3rem;

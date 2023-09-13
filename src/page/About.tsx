@@ -58,7 +58,10 @@ const StyledResults = styled.div`
 const StyledButtons = styled.div`
   display: flex;
   gap: 2rem;
+  justify-content: center;
   margin: 6rem auto 12rem auto;
+  width: 80%;
+  flex-wrap: wrap;
 `;
 const StyledText = styled(StyledParagraph)`
   margin: 6rem auto;

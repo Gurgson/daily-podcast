@@ -53,7 +53,7 @@ const StyledRow = styled(motion.div)`
 const StyledTagCotainer = styled.div`
   overflow: hidden;
   margin: 10rem auto;;
-  max-width: 100%;
+  max-width: 90%;
   border-bottom: 1px solid var(${ColorScheme.grey});
   font-size: var(${FontSizes.smallHeading});
   

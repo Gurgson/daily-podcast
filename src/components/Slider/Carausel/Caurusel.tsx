@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { motion } from "framer-motion"
-import  { FC, ReactNode, useEffect, useRef, useState } from "react"
+import  { FC, ReactNode, useCallback, useEffect, useRef, useState } from "react"
 import { StyledOutlinedButton } from "../../Button/Button"
 import { ButtonSize } from "../../Button/IButton"
 import { flexCenter } from "../../../styles/mixins"
@@ -14,7 +14,7 @@ const Caurusel:FC<ICauruselProps> = (props) => {
     const [cardWidth, setCardWidth] = useState<number>(0);
     // const caurusel = useRef<HTMLDivElement>(null);
     const row = useRef<HTMLDivElement>(null);
-    const moveLeft = ()=>{
+    const moveLeft = useCallback(()=>{
         if(!row.current)
             return;
         if(index < -(row.current.childNodes.length -2))
@@ -22,15 +22,15 @@ const Caurusel:FC<ICauruselProps> = (props) => {
         
         setIndex(index - 1)
     
-    }
-    const moveRight = ()=>{
+    },[index])
+    const moveRight = useCallback(()=>{
         if(!row.current)
             return;
         if(index >= 0) 
             return;
         setIndex(index + 1)
     
-    }
+    },[index]);
     const handlers :SwipeableHandlers = useSwipeable({
         onSwipedLeft: ()=>{
             moveLeft();
@@ -52,7 +52,6 @@ const Caurusel:FC<ICauruselProps> = (props) => {
             <StyledRow  ref={row} animate={{translateX: cardWidth * index}} whileTap={{scale:0.9}}>
                 {props.children}
             </StyledRow>
-            {/* {props.controlls &&  */}
             <StyledButtons>
                 <StyledButton onClick={moveRight}  size={ButtonSize.small}> &lt; </StyledButton>    
                 <StyledButton onClick={moveLeft} size={ButtonSize.small} color={ColorScheme.red} borderColor={ColorScheme.red}> &gt; </StyledButton>    
@@ -72,6 +71,7 @@ const StyledButtons = styled.div`
     gap:2rem;
     padding: 2rem;
     margin-top: 2rem;
+    margin-left: 2rem;
 `
 const StyledCaurusel = styled(motion.div)`
     min-width: 100%;
@@ -87,6 +87,7 @@ const StyledRow = styled(motion.div)`
     cursor: grab;
     gap: 2rem;    
     user-select: none;
+    padding-left: 2rem;
 `
 
 

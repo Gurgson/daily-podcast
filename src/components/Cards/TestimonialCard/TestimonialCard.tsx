@@ -24,7 +24,8 @@ const TestimonialCard : FC<IProps> = (props) => {
 }
 const StyledContainer = styled.div`
   min-height: 37rem;
-  min-width: 570px;
+  min-width: 57rem;
+ 
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -32,6 +33,10 @@ const StyledContainer = styled.div`
   padding: 6rem;
   background-color: var(${ColorScheme.white});
   border-radius: 8px;
+  gap: 1rem;
+   @media screen and (max-width:700px) {
+    min-width: 65%
+  }
 `
 const StyledText = styled(StyledParagraph)`
   text-align: justify;

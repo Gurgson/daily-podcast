@@ -6,6 +6,7 @@ import Landing from "./page/Landing";
 import Footer from "./components/Footer/Footer";
 import Navigation from "./components/Navigation/Navigation";
 import Episode from "./page/Episode";
+import Page404 from "./page/Page404";
 import {AnimatePresence } from "framer-motion";
 import About from "./page/About";
 import { Routes } from "react-router-dom";
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
             
             <Route path='/About' element={<About />}/>
             <Route path='/Episode/:query' element={<Episode />}/>
+            <Route path='*' element={<Page404 />}/>
           </Routes>
         </AnimatePresence>
         <Footer/>

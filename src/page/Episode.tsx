@@ -1,8 +1,7 @@
-import {useCallback, useState} from "react"
-import { Navigate, useParams } from "react-router-dom"
+import {useCallback, useState, useEffect} from "react"
+import {  useParams } from "react-router-dom"
 import Page from "../components/Page/Page";
 import Header from "../components/Header/Header";
-import { EpisodesDataList } from "../Data/Episodes";
 import styled from "styled-components";
 import EpisodeCard from "../components/Cards/EpisodeCard/EpisodeCard";
 import ColorScheme from "../enums/ColorScheme";
@@ -14,14 +13,13 @@ import { StyledTags } from "../components/EpisodeList/EpisodeListItem";
 import { flexCenter } from "../styles/mixins";
 import { BsPlay, BsPause } from "react-icons/bs";
 import EpisodeFilteredListSection from "../components/Sections/EpisodeListSection/EpisodeFilteredListSection";
+import useEpisode from "../hooks/useEpisode";
 
 
 const Episode = () => {
   
   const {query} = useParams();
-  const episode = EpisodesDataList.filter((item)=>(item.id+1).toString() === query)[0];
-  if(!episode)
-    Navigate({to: "/"});
+  const episode = useEpisode(query);
   
   const [isPlaying, setPlay] = useState<boolean>(false);
   const [audio] = useState<HTMLAudioElement>(new Audio(episode.audio));
@@ -37,6 +35,9 @@ const Episode = () => {
     setPlay(true);
 
   },[isPlaying, audio])
+  useEffect(()=>{
+    window.scrollTo(0, 10)
+  },[query])
   return (
     <Page props={{documentTitle: "Our episodes in Pod of Cast"}}>
       <Header>
@@ -147,12 +148,18 @@ const Buttons = styled(StyledRow)`
   margin-top: 6rem;
   justify-content: start;
   gap: 2rem;
+  @media screen and (max-width: 880px) {
+    flex-direction: column;
+  }
 `
 const TagsContainer = styled(StyledTags)`
   display: flex;
   align-items: center;
   flex:100%;
   font-size: var(${FontSizes.caption});
+  @media screen and (max-width: 880px) {
+    justify-content: center;
+  }
   & > span {
     margin-right: 6rem;
     color: var(${ColorScheme.grey})
@@ -163,6 +170,9 @@ const StyledRigth = styled.div`
   flex-direction: column;
   width:57rem;
   gap: 2rem;
+  @media screen and (max-width: 58rem) {
+    width: 80%;
+  }
   & hr {
     width: 100%;
     border-top: 1px solid var(${ColorScheme.black});

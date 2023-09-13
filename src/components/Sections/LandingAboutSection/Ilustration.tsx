@@ -15,6 +15,7 @@ const Ilustration : FC<IProps> = (props) => {
   )
 }
 const StyledContainer = styled.div`
+width: 100%;
     margin: 5rem auto;
     display: flex;
     flex-wrap: wrap;
@@ -23,6 +24,12 @@ const StyledContainer = styled.div`
     gap: 4rem;
     & > p {
       width: 50%;
+      text-align: center;
+      @media screen and (max-width: 700px){
+      width:80%
+      
+      }
     }
+   
 `
 export default Ilustration

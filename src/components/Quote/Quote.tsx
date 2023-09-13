@@ -1,6 +1,5 @@
 import { FC } from "react"
 import styled from "styled-components"
-import { flexCenter } from "../../styles/mixins"
 import QuoteSign from "./QuoteSign"
 import QuoteAuthor from "./QuoteAuthor"
 import { Author } from "../../Data/Testimonials"
@@ -17,8 +16,10 @@ const Quote:FC<IProps> = (props) => {
     <StyledContainer>
       <QuoteSign/>
       <p>
-      {props.children}
+        {props.children}
       </p>
+        
+      
       <QuoteAuthor author={props.author}/>
 
     </StyledContainer>
@@ -26,19 +27,20 @@ const Quote:FC<IProps> = (props) => {
 }
 
 const StyledContainer = styled.div`
-  ${flexCenter}
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  width: 90%;
-  padding: 4rem;
-  margin: 1rem auto;
+  max-width: 110rem;
+  width: 100%;
+  padding: 2rem 0 ;
   background-color: var(${ColorScheme.lightRed});
   position: relative;
   gap: 3rem;
-  & >p {
-    width: 60%;
-    font-size: var(${FontSizes.subheading});
+  & > p {
+    width: 80%;
+    font-size: var(${FontSizes.subheading}); 
     text-align: center;
-    font-style: normal;
     font-weight: 700;
     line-height: 140%;
     letter-spacing: -0.07rem;
@@ -46,12 +48,17 @@ const StyledContainer = styled.div`
   &::before{
     content: "";
     position: absolute;
+    display: block;
     width: 125px;
     height: 125px;
     bottom: 20%;
     left: -60px;
     background-image: url("/decorations/Spiral.svg");
     background-repeat: no-repeat;
+    @media screen and (max-width:500px){
+      display: none;
+      
+    }
   }
   &::after{
     content: "";

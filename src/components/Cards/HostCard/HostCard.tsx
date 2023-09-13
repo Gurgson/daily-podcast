@@ -71,6 +71,7 @@ const StyledRightSide = styled.div`
         border: 1px solid var(${ColorScheme.grey});
     }
 `
+
 const StyledContainer = styled.div`
     display: flex;
     width: 57rem;
@@ -84,6 +85,16 @@ const StyledContainer = styled.div`
         object-fit: cover;
         object-position: right;
         border-radius: 8px;
+        @media screen and (max-width: 520px) {
+        width: auto;
+    }
+    }
+    @media screen and (max-width: 520px) {
+        width: 37rem;
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
     }
     
 `

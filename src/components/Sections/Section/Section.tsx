@@ -16,9 +16,12 @@ const Section :FC<IProps> = (props) => {
   )
 }
 export const StyledSection = styled.section<IProps>`
+  /* overflow-y: hidden; */
   min-height: 60rem;
+  width: 100%;
   position: relative;
-  padding: 10rem 10rem;
+  z-index: 100;
+  padding: 10rem 0;
   ${flexCenter};
   flex-direction: column;
   background-color: var(${p => p.bgcolor?p.bgcolor: ColorScheme.white });
@@ -31,6 +34,7 @@ export const StyledSection = styled.section<IProps>`
     height: 15rem;
     top: -7.5rem;
     left: 50;
+    z-index: 50;
   }
   &::after {
     content: "";
@@ -41,7 +45,7 @@ export const StyledSection = styled.section<IProps>`
     height: 15rem;
     bottom: -7.5rem;
     left: 50;
-    z-index: 10;
+    z-index: 50;
   }
 `
 export default Section

@@ -21,7 +21,7 @@ const CoverCardListItem:FC<IProps>= (props) => {
             scale: 0,
         },
         end: {
-            height: "25rem",
+            height: "100%",
             scale: 1,
             transition: {
                 duration: 1,
@@ -122,10 +122,13 @@ const StyledCardInfo = styled.div`
      
         margin: 1.5rem 0 1rem 0;
     }
+    @media screen and (max-width: 600px) {
+        align-items: center;
+        
+    }
 `
 const StyledContainer = styled(motion.div)`
     width: 57rem;
-
     background-color: var(${ColorScheme.white});
     border: 2px solid var(${ColorScheme.white});
     border-radius: 1.2rem;
@@ -134,11 +137,19 @@ const StyledContainer = styled(motion.div)`
     flex-wrap: wrap;
     gap: 2rem;
     box-shadow: 0.5rem 0.5rem 0 0 var(${ColorScheme.blue});
-   
+    @media screen and (max-width: 600px) {
+        justify-content: center;
+        width: 35rem;
+    }
     & > img {
         width: 16.6rem;
         height: 16.6rem;
         border-radius: 0.6rem;
+        @media screen and (max-width: 600px) {
+            height: 20rem;
+            width: 22rem;
+    
+        }
     }
 `
 

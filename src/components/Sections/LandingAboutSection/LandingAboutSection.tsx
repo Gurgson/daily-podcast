@@ -10,10 +10,10 @@ const LandingAboutSection = () => {
   return (
     <Section>
         <StyledContainer>
-            <>
-            <Paragraph fontSize={FontSizes.heading} fontWeight={700} lineHeight="120%">Talk. Listen. Get inspired.</Paragraph>
-            <Paragraph fontSize={FontSizes.heading} fontWeight={700} lineHeight="120%"> by every minute of it.</Paragraph>
-            </>
+            <StyledPs>
+                <Paragraph margin="0 0.5rem" fontSize={FontSizes.heading} fontWeight={700} lineHeight="120%">Talk. Listen. Get inspired.</Paragraph>
+                <Paragraph margin="0 rem" fontSize={FontSizes.heading} fontWeight={700} lineHeight="120%"> by every minute of it.</Paragraph>
+            </StyledPs>
             <StyledRow>
                 <Ilustration imgUrl="images/ilustration01.svg" quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac ultrices odio. "/>
                 <Ilustration imgUrl="images/ilustration02.svg" quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac ultrices odio. "/>
@@ -23,16 +23,19 @@ const LandingAboutSection = () => {
     </Section>
   )
 }
-
+const StyledPs = styled.div`
+    text-align: center;
+`
 const StyledRow = styled.div`
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    
 
 `
 const StyledContainer = styled.div`
     ${flexCenter}
     flex-direction: column;
-    
+    overflow: hidden;
 `
 export default LandingAboutSection

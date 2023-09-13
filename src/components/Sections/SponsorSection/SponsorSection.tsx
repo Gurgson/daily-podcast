@@ -11,15 +11,18 @@ import Headline from '../../Headline.tsx/Headline'
 
 const SponsorSection :FC= () => {
   return (
-    <Section id='Sponsors' bgcolor={ColorScheme.lightRed}>
+    <CustomSection id='Sponsors' bgcolor={ColorScheme.lightRed}>
         <StyledTitle lineHeight='160%' fontSize={FontSizes.heading} fontWeight={700}>Our Sponsor</StyledTitle>
         <Headline sub="Our current official sponsor"/>
         <Caurusel>
             {sponsorsData.map((item:ISponsor,index)=><SponsorCard sponsorImg={item.sponsorImg} desription={item.desription} key={`Sponsor card -${index}`}/>)}
         </Caurusel>
-    </Section>
+    </CustomSection>
   )
 }
+const CustomSection = styled(Section)`
+  overflow: hidden;
+`
 const StyledTitle = styled(StyledParagraph)`
     &::after{
         content: "";

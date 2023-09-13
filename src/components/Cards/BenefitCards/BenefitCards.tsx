@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { flexCenter } from "../../../styles/mixins"
 import Paragraph from "../../Text/Paragraph"
 import FontSizes from "../../../enums/FontSizes"
+import { motion } from "framer-motion"
 
 interface IProps {
   benefits: IBenefits
@@ -18,7 +19,7 @@ const BenefitCards :FC<IProps> = (props) => {
     </StyledContainer>
   )
 }
-const StyledContainer = styled.div`
+const StyledContainer = styled(motion.div)`
     ${flexCenter}
     flex-direction: column;
     width: 32.5rem;

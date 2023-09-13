@@ -18,7 +18,7 @@ const NavigateToTopButton = () => {
         window.scrollTo(0,0);
     },[])
   return (
-    <StyledContainer onClick={handleClick} initial={{opacity: 0}} animate={{opacity:(isVisible)?0.95:0, bottom: 0, transition:{ duration: 1}}}>
+    <StyledContainer onClick={handleClick} initial={{opacity: 0}} whileTap={{scale:0.9}} animate={{opacity:(isVisible)?0.95:0, bottom: 0, transition:{ duration: 1}}}>
         <BsArrowUp/>
         <Paragraph fontSize={FontSizes.caption} lineHeight="160%" fontWeight={700} color={ColorScheme.white}>Go top</Paragraph>
     </StyledContainer>

@@ -4,27 +4,33 @@ import Benefits from '../../../Data/Benefits'
 import BenefitCards from '../../Cards/BenefitCards/BenefitCards'
 import { flexCenter } from '../../../styles/mixins'
 import Headline from '../../Headline.tsx/Headline'
+import { motion } from 'framer-motion'
 
 
 
 const FeaturesSection = () => {
-  return (
+    
+    return (
     <Section id='Features'> 
         <StyledHeader>
             <Headline main='Membership'/>
+            <Headline sub="Their experience throughout every platform"/>
         </StyledHeader>
-        <Headline sub="Their experience throughout every platform"/>
+        
         <CardContainer>
-            {Benefits.map((item,index)=> <BenefitCards benefits={item}  key={`featureCard-${index}`}/>)}
+            {Benefits.map((item,index)=> <BenefitCards  benefits={item}  key={`featureCard-${index}`}/>)}
         </CardContainer>
     </Section>
   )
 }
-const CardContainer = styled.div`
+const CardContainer = styled(motion.div)`
     display: flex;
     flex-wrap: wrap;
-    padding: 14rem;
+    justify-content: center;
+    align-items: center;
     gap: 8rem 2rem;
+    margin: 6rem 0;
+    width: 80%;
     ${flexCenter}
 `
 const StyledHeader = styled.div`
@@ -39,6 +45,9 @@ const StyledHeader = styled.div`
         position: absolute;
         top: -16rem;
         right: -12rem;
+        @media screen  and (max-width: 500px){
+            display: none;
+        }
     }
 `
 export default FeaturesSection

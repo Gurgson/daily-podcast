@@ -30,6 +30,7 @@ const StyledTextarea = styled(motion.textarea)`
     font-size: var(${FontSizes.body});
     width: 100%;
     min-height: 16.5rem;
+    box-sizing: border-box;
 
 `
 const StyledContainer = styled.div`
@@ -37,6 +38,7 @@ const StyledContainer = styled.div`
     flex-direction: column;
     font-weight: 700;
     gap: 1.6rem;
+    flex: 100%;
     width: 100%;
 `
 export default Textarea

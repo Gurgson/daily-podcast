@@ -87,6 +87,9 @@ const StyledText = styled.span`
   line-height: 160%;
   font-size: var(${FontSizes.caption});
   text-align: none;
+  @media screen and (max-width: 800px) {
+    text-align: center;
+  }
   & > a {
     color: var(${ColorScheme.red});
     text-decoration: none;
@@ -98,11 +101,17 @@ const StyledFooterSection = styled.div`
   flex-direction: column;
   gap: 4rem;
   justify-content: space-evenly;
+  
 `
 const StyledRow = styled.div`
   display: flex;
+  
   align-items: end;
   gap: 3.5rem;
+  @media screen and (max-width: 800px) {
+    justify-content: center;
+  
+  }
 `
 const StyledContainer = styled.div`
   padding: 14rem;
@@ -110,12 +119,23 @@ const StyledContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+  }
 `
 const LinkContainer = styled(StyledFooterSection)`
+  display: flex;
   align-items: start;
   gap:2rem;
   justify-content: start;
   flex: 20%;
+  flex-direction: column;
+  @media screen and (max-width: 800px) {
+    align-items: center;
+  }
+
 `
 const StyledTextPrivacyAndTerms = styled(StyledText)`
 & > a {

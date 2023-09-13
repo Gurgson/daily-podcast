@@ -24,7 +24,7 @@ const Landing = () => {
     useEffect(()=>{
       if(CauruselRef.current)
         setCauruselWidth(CauruselRef.current.scrollWidth - CauruselRef.current.offsetWidth);
-    },[CauruselWidth])
+    },[])
   
   const cauruselItems = EpisodesDataList.filter((item:IEpisode)=>item.isFeatured === true).map((item : IEpisode, index)=><EpisodeCard applyTitle={true} cover={item} key={`${item.shortTitle}-cover-card-${index}`}/>);
   return (
@@ -41,11 +41,11 @@ const Landing = () => {
         </StyledTextContainer>  
         <Button type={ButtonType.Fill} size={ButtonSize.big}>Subscribe</Button>
         <CauruselContainer ref={CauruselRef}>
-          <StyledDraggableCaurusel animate={{translateX: -CauruselWidth/2}} drag="x" dragConstraints={{right:CauruselWidth/2 , left:-CauruselWidth}} whileDrag={{cursor: "grabbing", scale: 0.95}} whileHover={{cursor:"grab"}}>
+          <StyledDraggableCaurusel initial={{translateX:300}} animate={{translateX: 0,transition:{duration: 2}}} drag="x" dragConstraints={{right:60 , left:-CauruselWidth+260}} whileDrag={{cursor: "grabbing", scale: 0.95}} whileHover={{cursor:"grab"}}>
             {
               cauruselItems
             }
-          </StyledDraggableCaurusel>x
+          </StyledDraggableCaurusel>
         </CauruselContainer>
         
 
@@ -77,6 +77,7 @@ const CauruselContainer = styled(motion.div)`
 const StyledSponsorBar = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-around;
   box-sizing: border-box;
   width: 80%;
@@ -84,7 +85,7 @@ const StyledSponsorBar = styled.div`
   border: 1px solid black;
   border-left: none;
   border-right: none;
-  margin: 2rem;
+  gap: 3rem;
   & > p {
     line-height: 140%;
     letter-spacing: -0.4px;

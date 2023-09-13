@@ -18,11 +18,16 @@ const ContactSection: FC = () => {
         </StyledHeadline>
         <hr />    
         <StyledForm>
-            <TextInput options={{label: {isRequired: true, for:"name", text:"Full name"}, placeholder:"Your name"}}/>
-            <TextInput options={{label: {isRequired: true, for:"email", text:"E-mail"}, type:"email", placeholder: "johndoe@gmail.com"}}/>
-            <TextInput options={{label: {isRequired: true, for:"phone", text:"Phone"}, type:"tel", placeholder: "Phone"}}/>
-            <TextInput options={{label: {isRequired: true, for:"subject", text:"Subject"}, placeholder:"Subject"}}/>
-            <Textarea options={{label: {isRequired: true, for:"message", text:"Message"}, placeholder: "Your message goes here..."}}/>
+            <StyledRow>
+                <TextInput options={{label: {isRequired: true, for:"name", text:"Full name"}, placeholder:"Your name"}}/>
+                <TextInput options={{label: {isRequired: true, for:"email", text:"E-mail"}, type:"email", placeholder: "johndoe@gmail.com"}}/>
+                
+            </StyledRow>
+            <StyledRow>
+                <TextInput options={{label: {isRequired: true, for:"phone", text:"Phone"}, type:"tel", placeholder: "Phone"}}/>
+                <TextInput options={{label: {isRequired: true, for:"subject", text:"Subject"}, placeholder:"Subject"}}/>
+            </StyledRow>
+           <Textarea options={{label: {isRequired: true, for:"message", text:"Message"}, placeholder: "Your message goes here..."}}/>
             <Bottom> 
                 <p>
                     <span>*</span>
@@ -36,17 +41,31 @@ const ContactSection: FC = () => {
     </CustomSection>
   )
 }
+const StyledRow = styled.div`
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    justify-content: space-between;
+
+`
 const Bottom = styled.div`
     display: flex;
     width: 100%;
+    flex: 100%;
     justify-content: space-between;
     align-items: center;
-    
+    & > p:last-child {
+            text-align: end;
+        }
     & > p {
-        width: 17rem;
+        max-width: 17rem;
         font-size: var(${FontSizes.caption});
         font-weight: 700;
         line-height: 160%;
+        flex: 20%;
+        
 
     
         & > span , a{
@@ -56,24 +75,28 @@ const Bottom = styled.div`
             text-decoration: underline;
         
         }
+        
     }
 `
 const StyledForm = styled.form`
     display: flex;
+    width: 60%;
     gap: 4rem 0;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    & > input {
-      flex: 0 45%;
+    @media screen and (max-width: 600px) {
+        width: 80%;
     }
-    
 `
 const CustomSection = styled(StyledSection)`
-    padding: 14rem 33rem;
+    padding: 14rem 0;
+    width: 100%;
+    justify-content: center;
+    overflow: none;
     & > hr {
         margin: 6rem auto;
-        width: 100%;
+        width: 80%;
         border: 1px solid var(${ColorScheme.grey});
     }
 `

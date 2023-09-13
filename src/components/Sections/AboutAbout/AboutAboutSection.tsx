@@ -40,12 +40,13 @@ const AboutAboutSection = () => {
       </HistorySection>
       <StyledTitle2 margin='8rem  auto' fontWeight={700} fontSize={FontSizes.subheading} wordSpacing='-1px'>  Founder and Main Host </StyledTitle2>    
       <StyledHostsContainer>
-        <HostCard number={1} host={marquesHost} decoration={<Decoration href='/images/Benefits/face1.svg' rotate={30} horizontal={55} vertical={0}/>}/>
-        <HostCard number={2} host={poterHost} decoration={<Decoration href='/images/Benefits/star.svg' horizontal={60} vertical={0}/> }/>
+        <HostCard number={1} host={marquesHost} decoration={<Decoration visableWhenWidthOver={520} href='/images/Benefits/face1.svg' rotate={30} horizontal={55} vertical={0}/>}/>
+        <HostCard number={2} host={poterHost} decoration={<Decoration visableWhenWidthOver={520} href='/images/Benefits/star.svg' horizontal={60} vertical={0}/> }/>
       </StyledHostsContainer>
     </Section>
   )
 }
+
 const StyledHostsContainer = styled.article`
   ${flexCenter}
   flex-wrap: wrap;
@@ -54,7 +55,9 @@ const StyledHostsContainer = styled.article`
 const StyledTitle2 = styled(StyledParagraph)`
   margin-bottom: 8rem;
   text-align: center;
+  width: 70%;
   &::after {
+    
     content: "";
     position:absolute;
     right: -6.5rem;
@@ -113,6 +116,9 @@ const HistorySection = styled.article`
   & hr {
     width: 100%;
     border-top: 1px solid var(${ColorScheme.grey});
+  }
+  @media screen and (max-width: 1124px) {
+    justify-content: center;
   }
 `
 const StyledImg = styled.img`

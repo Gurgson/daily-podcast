@@ -6,11 +6,10 @@ import ColorScheme from "../enums/ColorScheme";
 const GlobalStyles = createGlobalStyle`
     ${reset}
     ${variables}
-
     html {
         font-size: 62.5%;
         scroll-behavior: smooth;
-        overflow-x: hidden;
+
         @font-face {
             font-family: "MontserratAlternates";
             src: url('/fonts/Montserrat_Alternates/MontserratAlternates-Regular.ttf') format('truetype');

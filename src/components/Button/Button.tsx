@@ -30,9 +30,10 @@ const Button:FC<IButtonProps> = (props) => {
         onHoverStart: ()=>{setHover(true)},
         onHoverEnd: ()=>{setHover(false)},
     }
+    const clickAnimation :TargetAndTransition= {scale:0.9};
     return (<>
-        {props.type === ButtonType.Fill  && <StyledFillButton {...hoverAnimations} animate={hover}   onClick={props.handleClick} size={props.size}>{props.children}</StyledFillButton>}
-        {props.type === ButtonType.Outlined  && <StyledOutlinedButton {...hoverAnimations} animate={hover}  onClick={props.handleClick} textColor={props.textColor} borderColor={props.borderColor} size={props.size}>{props.children}</StyledOutlinedButton>}
+        {props.type === ButtonType.Fill  && <StyledFillButton whileTap={clickAnimation} {...hoverAnimations} animate={hover}   onClick={props.handleClick} size={props.size}>{props.children}</StyledFillButton>}
+        {props.type === ButtonType.Outlined  && <StyledOutlinedButton whileTap={clickAnimation} {...hoverAnimations} animate={hover}  onClick={props.handleClick} textColor={props.textColor} borderColor={props.borderColor} size={props.size}>{props.children}</StyledOutlinedButton>}
     </>
         
     )

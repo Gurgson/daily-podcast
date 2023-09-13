@@ -40,10 +40,10 @@ const StyledNav = styled(motion.nav)`
   position: fixed;
   justify-content: space-around;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   background-color: transparent;
   background-color:var(${ColorScheme.lightRed});
-  z-index: 200;
+  z-index: 1000;
   max-width: 100%;
   border-bottom: 1px solid var(${ColorScheme.grey});
   -webkit-backface-visibility: hidden;

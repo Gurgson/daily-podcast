@@ -13,7 +13,7 @@ const Header:FC<IHeaderProps> = (props) => {
   return (
     <StyledHeader>
         <Decoration visableWhenWidthOver={900} href='/decorations/header-decoration-1.svg' horizontal={DecorationHorizontalPosition.left} vertical={DecorationVerticalPosition.top}/>
-        <Decoration href='/decorations/header-decoration-2.png' horizontal={85} vertical={15}/>
+        <Decoration visableWhenWidthOver={600} href='/decorations/header-decoration-2.png' horizontal={77} vertical={15}/> 
         {props.children}
         
     </StyledHeader>
@@ -28,8 +28,11 @@ const StyledHeader = styled.header`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 6rem 0;
-    padding-bottom: 6rem;
+    padding: 10rem 1rem 10rem 1rem;
+    z-index: 300;
+    text-align:center;
+    overflow: none;
+  
     
     
 `

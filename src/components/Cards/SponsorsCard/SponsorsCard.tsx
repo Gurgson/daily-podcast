@@ -17,6 +17,7 @@ const SponsorsCard:FC<IProps> = (props) => {
 }
 const StyledContainer = styled.div<IProps>`
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 6rem;
     & > a > img {

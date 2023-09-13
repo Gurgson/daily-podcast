@@ -26,13 +26,14 @@ const TextInput:FC<ITextInputsProps> = (props) => {
     )
 }
 const StyledInput = styled(motion.input)`
-    width: 100%;
-    padding: 2rem;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+    width:100%;
     border-radius: 8px;
     border: 2px solid var(${ColorScheme.black});
     font-size: var(${FontSizes.body});
-    @media screen and (max-width: 1240px) {
-        min-width: 70rem;
+    @media screen and (max-width: 700px) {
+        width: 100%;
     }
 
 `

@@ -20,6 +20,7 @@ const StyledContainer = styled(Section)`
   overflow: hidden;
   & p {
     line-height: 160%;
+  
   }
 `
 export default TesimonialsSection
