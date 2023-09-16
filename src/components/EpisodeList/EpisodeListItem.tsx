@@ -145,6 +145,7 @@ const StyledContainer = styled(motion.div)`
         width: 16.6rem;
         height: 16.6rem;
         border-radius: 0.6rem;
+        aspect-ratio: 4/ 3;
         @media screen and (max-width: 600px) {
             height: 20rem;
             width: 22rem;

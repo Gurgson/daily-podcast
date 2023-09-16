@@ -20,7 +20,7 @@ const MobileNavigation = () => {
     
     <StyledContainer>
         <Logo/>
-        <BurgerMenu isClicked={isClicked} onClick={handleClick}>
+        <BurgerMenu isClicked={isClicked} onClick={handleClick} name="menu-burger">
             <div></div><div></div><div></div>
         </BurgerMenu>
         <StyledMenu initial={{scaleY:0, transformOrigin:"top"}} animate={{scaleY:(isClicked)?1:0, transition:{duration: 0.3, type:"tween"}}}>

@@ -28,9 +28,9 @@ const HostCard : FC<IProps>= (props) => {
             <hr />
             <SocialMediaBar>
                 <span> follow me: </span>
-                <SocialMediaIcon color={ColorScheme.black} icon={<SiTiktok/>} href="https://www.tiktok.com/"/>
-                <SocialMediaIcon color={ColorScheme.blue} icon={<SiTwitter/>} href="https://www.twitter.com/"/>
-                <SocialMediaIcon color={ColorScheme.red} icon={<SiInstagram/>} href="https://www.instagram.com/"/>
+                <SocialMediaIcon color={ColorScheme.black} props={{icon:<SiTiktok/>, href:"https://www.tiktok.com/", ariaLabel:"TikTok"}}/>
+                <SocialMediaIcon color={ColorScheme.blue} props={{icon:<SiTwitter/>, href:"https://www.twitter.com/", ariaLabel: "Twitter"}}/>
+                <SocialMediaIcon color={ColorScheme.red} props={{icon:<SiInstagram/>, href:"https://www.instagram.com/", ariaLabel: "Instagram"}}/>
             </SocialMediaBar>
         </StyledRightSide>
     </StyledContainer>

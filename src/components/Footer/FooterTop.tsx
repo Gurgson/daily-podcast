@@ -27,9 +27,9 @@ const FooterTop = () => {
           </StyledRelativDiv>
           <Paragraph margin="1.4rem" fontSize={FontSizes.caption}> Content also available on:</Paragraph>
           <StyledIconsContainer>
-            <SocialMediaIcon icon={<SiGooglepodcasts/>} href="https://podcasts.google.com/" color={ColorScheme.black}/>
-            <SocialMediaIcon icon={<SiSpotify/>} href="https://open.spotify.com/genre/podcasts-web" color={ColorScheme.black}/>
-            <SocialMediaIcon icon={<SiYoutube/>} href="https://youtube.com/" color={ColorScheme.black}/>
+            <SocialMediaIcon props={{icon:<SiGooglepodcasts/>, href:"https://podcasts.google.com/", ariaLabel:"Google podcast"}} color={ColorScheme.black}/>
+            <SocialMediaIcon props={{icon: <SiSpotify/>,href:"https://open.spotify.com/genre/podcasts-web", ariaLabel:"Spotify podcast"}} color={ColorScheme.black}/>
+            <SocialMediaIcon props={{icon:<SiYoutube/>,href:"https://youtube.com/" , ariaLabel:"Youtube podcast"}}color={ColorScheme.black}/>
           </StyledIconsContainer>
         </StyledBottomHeader>
         <Decoration visableWhenWidthOver={650} href="/images/Footer/left.png" vertical={50}  horizontal={DecorationHorizontalPosition.left} />

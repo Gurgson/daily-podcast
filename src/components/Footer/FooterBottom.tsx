@@ -24,9 +24,9 @@ const FooterBottom : FC = () => {
         </StyledText>
         
         <StyledRow>
-          <SocialMediaIcon href="https://twitter.com/" icon={<SiTwitter/>} color={ColorScheme.red}/>
-          <SocialMediaIcon href="https://instagram.com/" icon={<SiInstagram/>} color={ColorScheme.black}/>
-          <SocialMediaIcon href="https://tiktok.com/" icon={<SiTiktok/>} color={ColorScheme.black}/>
+          <SocialMediaIcon props={{href:"https://twitter.com/", icon:<SiTwitter/>, ariaLabel: "Twitter"}} color={ColorScheme.red}/>
+          <SocialMediaIcon props={{href:"https://instagram.com/" ,icon:<SiInstagram/>, ariaLabel:"Instagram"}} color={ColorScheme.black}/>
+          <SocialMediaIcon props={{ariaLabel:"Tiktok", href:"https://tiktok.com/", icon:<SiTiktok/>}}   color={ColorScheme.black}/>
         </StyledRow>
       </StyledFooterSection>
         
@@ -48,8 +48,8 @@ const FooterBottom : FC = () => {
         <>
         <StyledText>App aviable on:</StyledText>
         <StyledRow>
-          <SocialMediaIcon icon={<SiAppstore/>} color={ColorScheme.black} href="https://www.apple.com/app-store/" />
-          <SocialMediaIcon icon={<SiGoogleplay/>} color={ColorScheme.black} href="https://www.apple.com/app-store/" />
+          <SocialMediaIcon props={{icon: <SiAppstore/>, href:"https://www.apple.com/app-store/", ariaLabel:"App store"}} color={ColorScheme.black}/>
+          <SocialMediaIcon props={{icon:<SiGoogleplay/>, href:"https://store.google.com/", ariaLabel:"Google Play"}}  color={ColorScheme.black}  />
         </StyledRow>
         </>
       </StyledFooterSection>

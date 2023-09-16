@@ -21,7 +21,7 @@ const Paragraph:FC<IParagraphProps> = (props) => {
 }
 export const StyledParagraph = styled.p<IStyledParagraph>`
     position: relative;
-
+  
     margin: ${p=>p.margin};
     color: var(${p => p.color || ColorScheme.black});
     font-size: var(${p => p.fontSize || FontSizes.body});

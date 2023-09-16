@@ -13,6 +13,7 @@ interface IStyledDecoration  {
     z?: number;
     rotate?: number;
     isMirrored?: boolean;
+    alt?: string;
     
 }
 interface IDecoration extends IStyledDecoration {
@@ -36,7 +37,7 @@ const Decoration:FC<IDecoration> = (props) => {
   
   
   return (
-    visibility && <StyledDecoration  src={props.href} rotate={props.rotate} isMirrored={props.isMirrored} z={props.z} horizontal={props.horizontal} vertical={props.vertical}/>
+    visibility && <StyledDecoration  src={props.href} alt={props.alt || ""} rotate={props.rotate} isMirrored={props.isMirrored} z={props.z} horizontal={props.horizontal} vertical={props.vertical}/>
   ) 
 }
 

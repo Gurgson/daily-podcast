@@ -7,16 +7,19 @@ interface IStyledProps {
 }
 
 interface IProps extends IStyledProps{
-    icon: ReactNode,
-    href: string,
+    props: {
+      icon: ReactNode,
+      href: string,
+      ariaLabel: string,
+    }
     
 }
 
 
-const SocialMediaIcon:FC<IProps> = (props) => {
+const SocialMediaIcon:FC<IProps> = ({props, color}) => {
   return (
-    <StyledLink href={props.href}>
-      <StyledIcon color={props.color}>
+    <StyledLink href={props.href} aria-label={props.ariaLabel}>
+      <StyledIcon color={color}>
        {props.icon }
       </StyledIcon>
     </StyledLink>

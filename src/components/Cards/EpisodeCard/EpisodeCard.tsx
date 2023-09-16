@@ -23,9 +23,9 @@ const EpisodeCard : FC<IProps>= (props) => {
   return (
     <StyledEpisodeCardContainer isShadowed={props.isShadowed || false} imageUrl={props.cover.imgUrl} isSmall={props.isSmall || false}>
       <StyledSocialMediaBar>
-        {props.cover.gpodcast && <SocialMediaIcon icon={<SiGooglepodcasts></SiGooglepodcasts>}  href={props.cover.gpodcast}/>}
-        {props.cover.spotify && <SocialMediaIcon icon={<SiSpotify></SiSpotify>}  href={props.cover.spotify}/>}
-        {props.cover.youtube && <SocialMediaIcon icon={<SiYoutube></SiYoutube>}href={props.cover.youtube}/>}
+        {props.cover.gpodcast && <SocialMediaIcon props={{icon: <SiGooglepodcasts/>, href: props.cover.gpodcast, ariaLabel: "Google Podcast"}}/>}
+        {props.cover.spotify && <SocialMediaIcon props={{icon: <SiSpotify/>, href: props.cover.spotify, ariaLabel:"Spotify" }}/>}
+        {props.cover.youtube && <SocialMediaIcon props={{icon: <SiYoutube/>, href: props.cover.youtube, ariaLabel:"Yourube" }}/>}
         
       </StyledSocialMediaBar>
       {props.applyTitle && <StyledTitle>{props.cover.shortTitle}</StyledTitle>}
