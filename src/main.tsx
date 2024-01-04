@@ -22,7 +22,6 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           <Routes>
             <Route index path='/' element={<Landing />}/>
             <Route  path='/Home' element={<Landing />}/>
-           
             <Route path='/About' element={<About />}/>
             <Route path='/Episode/:query' element={<Episode />}/>
             <Route path='*' element={<Page404 />}/>
