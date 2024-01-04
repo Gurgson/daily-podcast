@@ -29,7 +29,7 @@ const StyledHeader = styled.header`
     justify-content: center;
     align-items: center;
     padding: 10rem 1rem 10rem 1rem;
-    z-index: 300;
+    /* z-index: 30; */
     text-align:center;
     overflow: none;
   

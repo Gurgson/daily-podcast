@@ -11,7 +11,7 @@ import Headline from '../../Headline.tsx/Headline'
 
 const AboutAboutSection = () => {
   return (
-    <Section>
+    <Section scribbleTopOff={true}>
       <StyledHeader>
         <Headline main='What our listeners say' sub="Their experience throughout every platform"/>
       </StyledHeader>

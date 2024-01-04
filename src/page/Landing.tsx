@@ -16,6 +16,7 @@ import EpisodeListSection from "../components/Sections/EpisodeListSection/Episod
 import FontSizes from "../enums/FontSizes"
 import ColorScheme from "../enums/ColorScheme"
 import Page from "../components/Page/Page"
+import { HashLink } from "react-router-hash-link"
 
 const Landing = () => {
   const [CauruselWidth, setCauruselWidth] = useState<number>(0);
@@ -39,7 +40,9 @@ const Landing = () => {
           </StyledDescriptionTextContainer>
           
         </StyledTextContainer>  
-        <Button type={ButtonType.Fill} size={ButtonSize.big}>Subscribe</Button>
+        <HashLink smooth to="/Home#Features">
+          <Button type={ButtonType.Fill} size={ButtonSize.big}>Subscribe</Button>
+        </HashLink>
         <CauruselContainer ref={CauruselRef}>
           <StyledDraggableCaurusel initial={{translateX:300}} animate={{translateX: 0,transition:{duration: 2}}} drag="x" dragConstraints={{right:60 , left:-CauruselWidth+260}} whileDrag={{cursor: "grabbing", scale: 0.95}} whileHover={{cursor:"grab"}}>
             {

@@ -26,10 +26,10 @@ const DesktopNavigation = () => {
         <NavigationItem props={{href:"/About", underlined:true}}>About</NavigationItem>
         <Dropdown>
           <span onClick={isDropdownVisible}>More</span>
-          <StyledUl initial={{scaleY: 0}} animate={{scaleY:isDropped?1:0}}>
+          <StyledUl initial={{opacity: 0, display: "none"}} animate={{opacity:isDropped?"100%":0, display:isDropped?"block":"none", }}>
             <NavigationItem props={{href:"/Home#Testimonials", underlined:true}}>Testimonials</NavigationItem>
             <NavigationItem props={{href:"/About#Sponsors",underlined:true}}>Sponsors</NavigationItem>
-            <NavigationItem props={{href:"/About/#Contact", underlined:true}}>Contact</NavigationItem>
+            <NavigationItem props={{href:"/About#Contact", underlined:true}}>Contact</NavigationItem>
           </StyledUl>
         </Dropdown>
         </StyledMenu>

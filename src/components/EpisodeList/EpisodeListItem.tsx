@@ -40,7 +40,7 @@ const CoverCardListItem:FC<IProps>= (props) => {
     }
   return (
     <StyledLink to={`/Episode/${props.cover.id + 1}`} >
-        <StyledContainer variants={animationSet} initial="start" whileHover="hover" whileInView="end" viewport={{ once: true }}>
+        <StyledContainer  variants={animationSet} initial="start" whileHover="hover" whileInView="end" viewport={{ once: true }}>
             <img src={props.cover.imgUrl} alt={`${props.cover.shortTitle} podcast image`}/>
             <StyledCardInfo>
                 <StyledText color={ColorScheme.red} fontWeight={700} lineHeight="160%">{`Ep. ${episodeNumber}`}</StyledText>

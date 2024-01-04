@@ -54,7 +54,7 @@ const FooterBottom : FC = () => {
         </>
       </StyledFooterSection>
       <StyledBottom>
-        <StyledText>©2022. All Rights Reserved. <a href="/">Pod of Cast</a> </StyledText>
+        <StyledText>©2023. All Rights Reserved. <a href="/">Pod of Cast</a> </StyledText>
         <StyledTextPrivacyAndTerms><a href="/Terms">Terms</a> &middot; <a href="/Privacy">Privacy</a> </StyledTextPrivacyAndTerms>
       </StyledBottom>
     </StyledContainer>

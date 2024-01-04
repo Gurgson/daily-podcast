@@ -12,6 +12,7 @@ import SponsorSection from '../components/Sections/SponsorSection/SponsorSection
 import ContactSection from '../components/Sections/ContactSection/ContactSection'
 import {FC} from "react"
 import Page from '../components/Page/Page'
+import { HashLink } from 'react-router-hash-link'
 
 const About:FC = () => {
   return (
@@ -21,8 +22,12 @@ const About:FC = () => {
         <Paragraph fontSize={FontSizes.displayHeading} color={ColorScheme.red} fontWeight={700}>Pod of Cast</Paragraph>
         <StyledText lineHeight='160%' color={ColorScheme.grey} >Lorem ipsum dolor sit amet, consectetur adipiscing elit,  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam–quis.t</StyledText>
         <StyledButtons>
-          <Button type={ButtonType.Outlined} size={ButtonSize.big}>  Become sponsor</Button>
-          <Button type={ButtonType.Fill} size={ButtonSize.big}> Subscribe</Button>
+          <HashLink smooth to="/About#Contact">
+           <Button type={ButtonType.Outlined} size={ButtonSize.big}>  Become sponsor</Button>
+          </HashLink>
+          <HashLink smooth to="/Home#Features">
+            <Button type={ButtonType.Fill} size={ButtonSize.big}> Subscribe</Button>
+          </HashLink>
         </StyledButtons>
         <StyledResults>
         {

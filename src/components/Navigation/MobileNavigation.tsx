@@ -39,7 +39,7 @@ const MobileNavigation = () => {
                 <NavigationItem props={{href:"/About#Sponsors",underlined:true}}>Sponsors</NavigationItem>
             </li>
             <li>
-                <NavigationItem props={{href:"/About/#Contact", underlined:true}}>Contact</NavigationItem>
+                <NavigationItem props={{href:"/About#Contact", underlined:true}}>Contact</NavigationItem>
                   
             </li>
             <li>

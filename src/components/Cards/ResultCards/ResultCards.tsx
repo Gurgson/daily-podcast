@@ -30,7 +30,7 @@ const StyledContainer = styled(motion.div)`
     height: 23.5rem;
     width: 37rem;
     text-align: center;
-    z-index: 10;
+    z-index: 50;
     display: flex;
     flex-direction: column;
     justify-content: center;
