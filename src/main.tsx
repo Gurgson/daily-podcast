@@ -12,7 +12,6 @@ import About from "./page/About";
 import { Routes } from "react-router-dom";
 import NavigateToTopButton from "./components/NavigateToTopButton/NavigateToTopButton";
 
-
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
       <GlobalStyles />

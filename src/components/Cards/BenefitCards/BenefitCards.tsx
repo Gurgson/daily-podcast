@@ -4,18 +4,20 @@ import styled from "styled-components"
 import { flexCenter } from "../../../styles/mixins"
 import Paragraph from "../../Text/Paragraph"
 import FontSizes from "../../../enums/FontSizes"
-import { motion } from "framer-motion"
+import { Variant, motion } from "framer-motion"
+import { rotateShow } from "../../../AnimationSets/animation"
 
 interface IProps {
-  benefits: IBenefits
-}
+  benefits: IBenefits,
+  animSet: Variant
+} 
 
-const BenefitCards :FC<IProps> = (props) => {
+const BenefitCards :FC<IProps> = ({benefits}) => {
   return (
-    <StyledContainer>
-        <img src={props.benefits.img} alt={props.benefits.title} loading="lazy"/>
-        <Paragraph fontSize={FontSizes.smallHeading} fontWeight={700}>{props.benefits.title}</Paragraph>
-        <Paragraph>{props.benefits.description}</Paragraph>
+    <StyledContainer variants={rotateShow}>
+        <img src={benefits.img} alt={benefits.title} loading="lazy"/>
+        <Paragraph fontSize={FontSizes.smallHeading} fontWeight={700}>{benefits.title}</Paragraph>
+        <Paragraph>{benefits.description}</Paragraph>
     </StyledContainer>
   )
 }

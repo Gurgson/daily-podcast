@@ -21,7 +21,6 @@ const NavigationItem:FC<IProps> = ({props,children}) => {
 const StyledLink = styled(HashLink)<{$underlined?: boolean}>`
   text-decoration: none;
   color: var(${ColorScheme.black});
-  
   border-bottom: 1px solid transparent;
   margin: 2rem 0;
   display: inline-block;

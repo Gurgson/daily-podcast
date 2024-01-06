@@ -46,6 +46,7 @@ const StyledNav = styled(motion.nav)`
   z-index: 1000;
   max-width: 100%;
   border-bottom: 1px solid var(${ColorScheme.grey});
+  opacity: 99%;
   -webkit-backface-visibility: hidden;
 
 `

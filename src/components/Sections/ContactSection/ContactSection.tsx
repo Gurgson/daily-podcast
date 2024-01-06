@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, FormEvent } from 'react'
 import { StyledSection } from '../Section/Section'
 import Headline from '../../Headline.tsx/Headline'
 import styled from 'styled-components'
@@ -11,13 +11,16 @@ import Textarea from '../../Inputs/Textarea'
 
 
 const ContactSection: FC = () => {
+    const onsubmit = (e: FormEvent)=>{
+        e.preventDefault();
+    }
   return (
     <CustomSection id='Contact'>
         <StyledHeadline>
             <Headline main='Get in touch' sub='Send your message to us'/>
         </StyledHeadline>
         <hr />    
-        <StyledForm>
+        <StyledForm onSubmit={onsubmit}>
             <StyledRow>
                 <TextInput options={{label: {isRequired: true, for:"name", text:"Full name"}, placeholder:"Your name"}}/>
                 <TextInput options={{label: {isRequired: true, for:"email", text:"E-mail"}, type:"email", placeholder: "johndoe@gmail.com"}}/>

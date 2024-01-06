@@ -1,4 +1,4 @@
-import { FC} from "react"
+import { FC, ReactNode} from "react"
 import styled from "styled-components"
 import FontSizes from "../../enums/FontSizes"
 import ColorScheme from "../../enums/ColorScheme"
@@ -11,7 +11,7 @@ interface IStyledParagraph {
     margin?: string
 }
 interface IParagraphProps extends IStyledParagraph {
-    children: string 
+    children: string  | ReactNode
     
 }
 const Paragraph:FC<IParagraphProps> = (props) => {
@@ -21,7 +21,6 @@ const Paragraph:FC<IParagraphProps> = (props) => {
 }
 export const StyledParagraph = styled.p<IStyledParagraph>`
     position: relative;
-  
     margin: ${p=>p.margin};
     color: var(${p => p.color || ColorScheme.black});
     font-size: var(${p => p.fontSize || FontSizes.body});

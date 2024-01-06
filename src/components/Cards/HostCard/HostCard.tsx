@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode, useRef } from 'react'
 import styled from 'styled-components'
 import { IHost } from '../../../Data/Hosts'
 import ColorScheme from '../../../enums/ColorScheme'
@@ -6,15 +6,28 @@ import Paragraph, { StyledParagraph } from '../../Text/Paragraph'
 import FontSizes from '../../../enums/FontSizes'
 import SocialMediaIcon from '../../Icons/SocialMediaIcon'
 import { SiInstagram, SiTiktok, SiTwitter } from 'react-icons/si'
+import { motion, useInView } from 'framer-motion'
+import { slide } from '../../../AnimationSets/animation'
 interface IProps{
     host: IHost,
     number: number,
     decoration?: ReactNode,
+    animateDirection: boolean
 }
 
 const HostCard : FC<IProps>= (props) => {
+    const ref = useRef<HTMLDivElement>(null);
+    const isInview = useInView(ref, {once: true})
   return (
-    <StyledContainer>
+    <StyledContainer
+        ref={ref}
+        variants={slide(props.animateDirection)}
+        initial="start"
+        animate={isInview?"end":"start"}
+        transition={{
+            duration: 1.2
+        }}
+    >
         <img src={props.host.imgUrl} alt={`${props.host.name} image`}/>
         <StyledRightSide>
             {props.decoration && props.decoration}
@@ -72,7 +85,7 @@ const StyledRightSide = styled.div`
     }
 `
 
-const StyledContainer = styled.div`
+const StyledContainer = styled(motion.div)`
     display: flex;
     width: 57rem;
     height: 52rem;

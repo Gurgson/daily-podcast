@@ -1,8 +1,9 @@
 import { FC, useState, ReactNode } from "react"
 import { ButtonSize, ButtonType } from "./IButton"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { TargetAndTransition, motion } from "framer-motion";
 import ColorScheme from "../../enums/ColorScheme";
+import { ButtonSharedStyle } from "../../styles/mixins";
 
 interface IStyledButtonProps  {
     size:ButtonSize,
@@ -38,12 +39,7 @@ const Button:FC<IButtonProps> = (props) => {
         
     )
 }
-const ButtonSharedStyle = css`
-    border-radius: 8px;
-    font-weight: 700;
-    cursor: pointer;
-    text-transform: uppercase;
-`;
+
 export const StyledOutlinedButton = styled(motion.button)<IStyledButtonProps>`
     color: var(${p=>p.textColor?p.textColor:ColorScheme.black});
     padding: ${p=>p.size};

@@ -24,7 +24,7 @@ const DesktopNavigation = () => {
         <StyledMenu>
         <NavigationItem props={{href:"/Home#Episodes", underlined:true}}>Episodes</NavigationItem>
         <NavigationItem props={{href:"/About", underlined:true}}>About</NavigationItem>
-        <Dropdown>
+        <Dropdown isDropped={isDropped}>
           <span onClick={isDropdownVisible}>More</span>
           <StyledUl initial={{opacity: 0, display: "none"}} animate={{opacity:isDropped?"100%":0, display:isDropped?"block":"none", }}>
             <NavigationItem props={{href:"/Home#Testimonials", underlined:true}}>Testimonials</NavigationItem>
@@ -81,7 +81,7 @@ const StyledButtons = styled.div`
   gap: 2rem;
   
 `
-const Dropdown = styled.div`
+const Dropdown = styled.div<{isDropped:boolean}>`
   position: relative;
   cursor: pointer;
   user-select: none;
@@ -100,6 +100,8 @@ const Dropdown = styled.div`
       width: 1.6rem;
       background-image: url('/decorations/arrow-down.svg');
       transition: 1s;
+      transform: ${p=>p.isDropped?"rotateZ(-90deg) scale(1.1)":""};
+      transition: 0.5s;
     }
     
   }

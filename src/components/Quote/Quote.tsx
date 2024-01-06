@@ -1,23 +1,35 @@
-import { FC } from "react"
+import { FC, useRef } from "react"
 import styled from "styled-components"
 import QuoteSign from "./QuoteSign"
 import QuoteAuthor from "./QuoteAuthor"
 import { Author } from "../../Data/Testimonials"
 import ColorScheme from "../../enums/ColorScheme"
 import FontSizes from "../../enums/FontSizes"
+import { motion, useInView } from "framer-motion"
+import { showFromBottom } from "../../AnimationSets/animation"
+
 interface IProps  {
   children: string,
   author: Author
 }
 
 const Quote:FC<IProps> = (props) => {
+  const ref = useRef<HTMLParagraphElement>(null)
+  const isInView = useInView(ref, {once: true})
   return (
     
     <StyledContainer>
       <QuoteSign/>
-      <p>
+      <motion.p
+        variants={showFromBottom} 
+        ref={ref}
+        initial="start"
+        animate={isInView?"end":"start"}
+        transition={{duration:1}}
+        >
+        
         {props.children}
-      </p>
+      </motion.p>
         
       
       <QuoteAuthor author={props.author}/>

@@ -14,6 +14,7 @@ import { flexCenter } from "../styles/mixins";
 import { BsPlay, BsPause } from "react-icons/bs";
 import EpisodeFilteredListSection from "../components/Sections/EpisodeListSection/EpisodeFilteredListSection";
 import useEpisode from "../hooks/useEpisode";
+import AnimatedText from "../components/AnimatedText/AnimatedText";
 
 
 const Episode = () => {
@@ -51,15 +52,24 @@ const Episode = () => {
               </StyledEpisodeId>
               {episode.isFeatured && <Button borderColor={ColorScheme.red} textColor={ColorScheme.red} type={ButtonType.Outlined} size={ButtonSize.small}> FEATURED EPISODE </Button>}
             </StyledRow>
-            <Paragraph fontSize={FontSizes.subheading} fontWeight={700}>{episode.fullTitle}</Paragraph>
+            <Paragraph fontSize={FontSizes.subheading} fontWeight={700}>
+              <AnimatedText>{episode.fullTitle}</AnimatedText>
+            </Paragraph>
             <hr />
             <Paragraph lineHeight="160%" color={ColorScheme.grey}>
-              {episode.description}
+              <AnimatedText
+                delay={1}
+                stagger={0.1}
+              >
+                {episode.description}
+              </AnimatedText>
             </Paragraph>
             <StyledAuthorRow>
               <div>
                 <Avatar src={episode.hosts.main.imgUrl}/>
-                Hosted By:<span>{episode.hosts.main.name}</span>
+                Hosted By:<span>
+                  <AnimatedText>{episode.hosts.main.name}</AnimatedText>
+                </span>
               </div>
               <span>
                 {new Date(episode.createdAt).toLocaleDateString("en-Us",{ month: 'short',  day: "numeric",  year: "numeric"})}
@@ -192,5 +202,6 @@ const StyledContainer = styled.div`
   justify-content: space-evenly;
   align-items: center;
   margin: 0 auto;
+  z-index: 20;
 `
 export default Episode

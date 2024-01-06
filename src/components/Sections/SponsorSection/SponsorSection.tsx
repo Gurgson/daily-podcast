@@ -8,11 +8,14 @@ import { StyledParagraph } from '../../Text/Paragraph'
 import styled from 'styled-components'
 import FontSizes from '../../../enums/FontSizes'
 import Headline from '../../Headline.tsx/Headline'
+import AnimatedText from '../../AnimatedText/AnimatedText'
 
 const SponsorSection :FC= () => {
   return (
     <CustomSection id='Sponsors' bgcolor={ColorScheme.lightRed}>
-        <StyledTitle lineHeight='160%' fontSize={FontSizes.heading} fontWeight={700}>Our Sponsor</StyledTitle>
+        <StyledTitle lineHeight='160%' fontSize={FontSizes.heading} fontWeight={700}>
+          <AnimatedText>Our Sponsor</AnimatedText>
+        </StyledTitle>
         <Headline sub="Our current official sponsor"/>
         <Caurusel>
             {sponsorsData.map((item:ISponsor,index)=><SponsorCard sponsorImg={item.sponsorImg} desription={item.desription} key={`Sponsor card -${index}`}/>)}

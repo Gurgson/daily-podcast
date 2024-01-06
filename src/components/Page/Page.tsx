@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion'
-import {useEffect, FC, ReactNode} from 'react'
+import {FC, ReactNode} from 'react'
+
 import styled from 'styled-components'
+import { show } from '../../AnimationSets/animation'
+
 interface IProps {
     props:{
       documentTitle:string
@@ -9,25 +12,19 @@ interface IProps {
 }
 const Page :FC<IProps>= ({props, children}) => {
     window.document.title = props.documentTitle;
-    useEffect(() => {
-        window.scrollTo(0, 0)
-        
-      }, [])
   return (
-    <StyledPage 
-      initial={{opacity: 0}} 
-      animate={{
-        opacity: 1, transition:{
-        duration: 1.5,
-        ease:"easeIn"
-    }}}
-      exit={{opacity: 0}}
+    <StyledPage
+      variants={show}
+      initial="start" 
+      animate="end"
+      transition={{duration: 2}}
     >
       {children}
     </StyledPage>
   )
 }
 const StyledPage = styled(motion.main)`
-    padding-top: 100px;
+   overflow-x: none;
+   max-width: 100vw;
 `
 export default Page

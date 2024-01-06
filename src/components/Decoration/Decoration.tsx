@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import { DecorationHorizontalPosition, DecorationVerticalPosition } from './IDecoration'
-import { FC,useState,useEffect } from 'react';
+import { FC,useState,useEffect, useRef } from 'react';
 import { useViewport } from '../../hooks/useViewport';
+import {  motion, useInView } from 'framer-motion';
+import { slide } from '../../AnimationSets/animation';
 
 
 
@@ -14,16 +16,24 @@ interface IStyledDecoration  {
     rotate?: number;
     isMirrored?: boolean;
     alt?: string;
+    isAnimated?: boolean;
+    animateOnce?: boolean;
+    animateWhenInView?: boolean;
+    animationDirection?: boolean;
+    
     
 }
 interface IDecoration extends IStyledDecoration {
     href: string,
     visableWhenWidthOver?: number;
+    
    
 }
 const Decoration:FC<IDecoration> = (props) => {
   const [portWidth, setViewportWidth] = useState<number>(0);
   const [visibility, setVisibility] = useState<boolean>(true);
+  const ref = useRef<HTMLImageElement>(null);
+  const isInView = useInView(ref, {once: props.animateOnce });
   const viewPort = useViewport();
   useEffect(()=>{
     setViewportWidth(viewPort);
@@ -37,11 +47,33 @@ const Decoration:FC<IDecoration> = (props) => {
   
   
   return (
-    visibility && <StyledDecoration  src={props.href} alt={props.alt || ""} rotate={props.rotate} isMirrored={props.isMirrored} z={props.z} horizontal={props.horizontal} vertical={props.vertical}/>
+    visibility && 
+    <StyledDecoration 
+      ref={ref}
+      variants={slide(props.animationDirection || false)}
+      initial={props.isAnimated?"start":""}  
+      animate={
+        props.isAnimated || isInView?"end":""
+      }
+      transition={
+        {
+          duration: 1,
+          
+        }
+      }
+
+      src={props.href} alt={props.alt || ""} 
+      
+      rotate={props.rotate} 
+      isMirrored={props.isMirrored} 
+      z={props.z} 
+      horizontal={props.horizontal} 
+      vertical={props.vertical}
+    />
   ) 
 }
 
-const StyledDecoration = styled.img<IStyledDecoration>`
+const StyledDecoration = styled(motion.img)<IStyledDecoration>`
     position: absolute;
     display: block;
     z-index: ${p=> p.z?p.z: 1};

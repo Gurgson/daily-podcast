@@ -21,7 +21,7 @@ const EpisodeListSection:FC = () => {
     <Section id='Episodes' bgcolor={ColorScheme.lightRed}>
         <Headline main="Our recent episodes" sub="Available on your every platform"/>
         <EpisodeList items={EpisodeListChildren}/>
-        <motion.div animate={(!isClicked)?"":{opacity: 0, scale:0, transition:{ duration: 3}}} aria-disabled="true"> 
+        <motion.div animate={(!isClicked)?"":{opacity: 0, transition:{ duration: 2}}} aria-disabled="true"> 
           <Button handleClick={showMoreItems} size={ButtonSize.big} type={ButtonType.Fill} >Browse all episodes</Button>
         </motion.div>
     </Section>

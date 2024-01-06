@@ -22,8 +22,6 @@ const FooterTop = () => {
           <StyledRelativDiv>
           <Decoration  vertical={-100} horizontal={80} z={10} href="/decorations/Sparkle.svg"/>
             <Button type={ButtonType.Fill} size={ButtonSize.big}>Download now</Button>
-            
-          
           </StyledRelativDiv>
           <Paragraph margin="1.4rem" fontSize={FontSizes.caption}> Content also available on:</Paragraph>
           <StyledIconsContainer>
@@ -32,8 +30,8 @@ const FooterTop = () => {
             <SocialMediaIcon props={{icon:<SiYoutube/>,href:"https://youtube.com/" , ariaLabel:"Youtube podcast"}}color={ColorScheme.black}/>
           </StyledIconsContainer>
         </StyledBottomHeader>
-        <Decoration visableWhenWidthOver={650} href="/images/Footer/left.png" vertical={50}  horizontal={DecorationHorizontalPosition.left} />
-        <Decoration visableWhenWidthOver={500} href="/images/Footer/right.png" vertical={25}  horizontal={75} />
+        <Decoration  animateOnce={true} animateWhenInView={true} animationDirection={false} visableWhenWidthOver={650} href="/images/Footer/left.png" vertical={50}  horizontal={DecorationHorizontalPosition.left} />
+        <Decoration  animateOnce={true} animateWhenInView={true} animationDirection={true} visableWhenWidthOver={500} href="/images/Footer/right.png" vertical={25}  horizontal={75} />
     </StyledContainer>
   )
 }

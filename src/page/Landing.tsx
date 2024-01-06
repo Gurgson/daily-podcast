@@ -17,6 +17,7 @@ import FontSizes from "../enums/FontSizes"
 import ColorScheme from "../enums/ColorScheme"
 import Page from "../components/Page/Page"
 import { HashLink } from "react-router-hash-link"
+import AnimatedText from "../components/AnimatedText/AnimatedText"
 
 const Landing = () => {
   const [CauruselWidth, setCauruselWidth] = useState<number>(0);
@@ -32,10 +33,16 @@ const Landing = () => {
     <Page props={{documentTitle: "Pod of cast, your daily podcast"}}> 
       <Header>
         <StyledTextContainer>
-          <Paragraph fontSize={FontSizes.displayHeading} fontWeight={700}> Your daily</Paragraph>
-          <Paragraph fontSize={FontSizes.displayHeading} color={ColorScheme.red} fontWeight={700}> Podcast</Paragraph>
+          <Paragraph fontSize={FontSizes.displayHeading} fontWeight={700}>
+            <AnimatedText>About</AnimatedText>
+          </Paragraph>
+          <Paragraph fontSize={FontSizes.displayHeading} color={ColorScheme.red} fontWeight={700}> 
+            <AnimatedText delay={1}>Podcast</AnimatedText>
+          </Paragraph>
           <StyledDescriptionTextContainer>
-            <Paragraph > We cover all kinds of categories and </Paragraph>
+            <Paragraph > 
+              We cover all kinds of categories and
+            </Paragraph>
             <Paragraph>a weekly special guest.</Paragraph> 
           </StyledDescriptionTextContainer>
           

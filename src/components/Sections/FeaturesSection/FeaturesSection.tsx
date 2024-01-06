@@ -4,21 +4,25 @@ import Benefits from '../../../Data/Benefits'
 import BenefitCards from '../../Cards/BenefitCards/BenefitCards'
 import { flexCenter } from '../../../styles/mixins'
 import Headline from '../../Headline.tsx/Headline'
-import { motion } from 'framer-motion'
+import {  motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
+import { rotateShow } from '../../../AnimationSets/animation'
 
 
 
 const FeaturesSection = () => {
-    
+   
+    const ref = useRef<HTMLDivElement>(null)
+    const isInView = useInView(ref, {once: true, margin: "-50%"});
     return (
-    <Section id='Features'> 
-        <StyledHeader>
+    <Section id='Features' > 
+        <StyledHeader ref={ref}>
             <Headline main='Membership'/>
             <Headline sub="Their experience throughout every platform"/>
         </StyledHeader>
         
-        <CardContainer>
-            {Benefits.map((item,index)=> <BenefitCards  benefits={item}  key={`featureCard-${index}`}/>)}
+        <CardContainer initial="start" animate={isInView?"end":""} transition={{staggerChildren:0.3}}>
+            {Benefits.map((item,index)=> <BenefitCards animSet={rotateShow}  benefits={item}  key={`featureCard-${index}`}/>)}
         </CardContainer>
     </Section>
   )

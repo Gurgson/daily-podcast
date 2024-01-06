@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { IEpisode } from "../../Data/Episodes"
-import {FC} from "react";
-import { Variants, motion } from "framer-motion";
+import {FC, useRef} from "react";
+import { Variants, motion, useInView } from "framer-motion";
 import { StyledParagraph } from "../Text/Paragraph";
 import { flexCenter } from "../../styles/mixins";
 import { Link } from "react-router-dom";
 import ColorScheme from "../../enums/ColorScheme";
 import FontSizes from "../../enums/FontSizes";
+import { showFromBottom } from "../../AnimationSets/animation";
 
 
 interface IProps {
@@ -15,19 +16,11 @@ interface IProps {
 }
 const CoverCardListItem:FC<IProps>= (props) => {
     const episodeNumber = props.cover.id +1;
-    const animationSet : Variants = {
-        start: {
-            height: "10rem",
-            scale: 0,
-        },
-        end: {
-            height: "100%",
-            scale: 1,
-            transition: {
-                duration: 1,
-                type: "tween"
-            }
-        },
+    const ref= useRef<HTMLDivElement>(null);
+    const isInView = useInView(ref, {once: true})
+    const animationSet : Variants  = {
+
+        ...showFromBottom,
         hover: {
             cursor: "pointer",
             borderColor: `var(${ColorScheme.black})`,
@@ -40,7 +33,7 @@ const CoverCardListItem:FC<IProps>= (props) => {
     }
   return (
     <StyledLink to={`/Episode/${props.cover.id + 1}`} >
-        <StyledContainer  variants={animationSet} initial="start" whileHover="hover" whileInView="end" viewport={{ once: true }}>
+        <StyledContainer ref={ref}  variants={animationSet} initial="start" animate={isInView?"end":""} transition={{duration:1}} whileHover="hover">
             <img src={props.cover.imgUrl} alt={`${props.cover.shortTitle} podcast image`}/>
             <StyledCardInfo>
                 <StyledText color={ColorScheme.red} fontWeight={700} lineHeight="160%">{`Ep. ${episodeNumber}`}</StyledText>
