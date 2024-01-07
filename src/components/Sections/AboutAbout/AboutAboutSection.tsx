@@ -20,7 +20,7 @@ const AboutAboutSection = () => {
       <StyledImg src="/images/about.png" alt="About section image"/>
 
       <StyledTitle margin='8rem  auto' fontWeight={700} fontSize={FontSizes.subheading} wordSpacing='-1px'>
-        <AnimatedText stagger={0.1}>
+        <AnimatedText stagger={0.}>
         About and History  
         </AnimatedText>  
       </StyledTitle>    
@@ -44,7 +44,7 @@ const AboutAboutSection = () => {
         <hr/>
       </HistorySection>
       <StyledTitle2 margin='8rem  auto' fontWeight={700} fontSize={FontSizes.subheading} wordSpacing='-1px'> 
-          <AnimatedText stagger={0.1}>
+          <AnimatedText stagger={0.}>
             Founder and Main Host 
           </AnimatedText>
        </StyledTitle2>    
@@ -59,9 +59,10 @@ const AboutAboutSection = () => {
 const StyledHostsContainer = styled.article`
   ${flexCenter}
   flex-wrap: wrap;
+  position: relative;
   gap: 2rem;
   max-width: 100vw;
-  overflow: none;
+  overflow-x: hidden;
 `
 const StyledTitle2 = styled(StyledParagraph)`
   margin-bottom: 8rem;

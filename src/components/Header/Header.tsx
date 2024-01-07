@@ -32,7 +32,7 @@ const StyledHeader = styled.header`
     padding: 25rem 1rem 10rem 1rem;
     /* z-index: 30; */
     text-align:center;
-    overflow: none;
+    overflow-x: none;
   
     
     

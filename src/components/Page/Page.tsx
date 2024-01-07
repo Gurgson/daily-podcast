@@ -24,7 +24,8 @@ const Page :FC<IProps>= ({props, children}) => {
   )
 }
 const StyledPage = styled(motion.main)`
-   overflow-x: none;
-   max-width: 100vw;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  max-width: 100vw;
 `
 export default Page

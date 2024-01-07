@@ -51,6 +51,7 @@ const StyledTopHeader = styled.div`
   padding: 10rem 1rem;
   flex-direction: column;
   gap: 1rem;
+  overflow-x: hidden;
 `
 const StyledBottomHeader = styled.div`
   display: flex;
