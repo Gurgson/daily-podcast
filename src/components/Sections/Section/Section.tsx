@@ -17,7 +17,8 @@ const Section :FC<IProps> = (props) => {
   )
 }
 export const StyledSection = styled.section<IProps>`
-  overflow-y: visible;
+  overflow-y: hidden;
+  overflow-x: hidden;
   min-height: 60rem;
   width: 100%;
   position: relative;
